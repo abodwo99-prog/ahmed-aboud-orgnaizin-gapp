@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>مصاريفي</title>
+<title>مكتب احمد عبود</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f6f8;--cd:#fff;--tx:#1b1f24;--mu:#6b7280;--ac:#0f766e;--bd:#e3e6ea;--bad:#b91c1c;--ok:#15803d;--wn:#b45309}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -35,9 +35,10 @@ const D={salary:42000,fixed:[],paid:{},exp:[],extra:[],debts:[],dp:[],debtPct:30
 cats:[{n:'أكل وشرب',p:35},{n:'مواصلات',p:15},{n:'ترفيه وشخصي',p:15},{n:'ادخار وطوارئ',p:25},{n:'متفرقات',p:10}],todos:[]};
 let S=(()=>{try{return Object.assign({},D,JSON.parse(localStorage.getItem('mz1')||'{}'))}catch(x){return D}})();
 let tab='sum';
-const SB_URL='sb_publishable_630zjwV9AZh2fTBJULYvDg_MYz1QM7N
-',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q';
-const sb=supabase.createClient(SB_URL,SB_KEY);let U=null,tm;
+const SB_URL='https://aoutyafrchecgpafsdnf.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q';
+window.onerror=m=>{document.getElementById('app').innerHTML='<div class="cd"><h2>حصل خطأ</h2><p class="bad">'+m+'</p></div>'};
+let sb=null,U=null,tm,cfgErr='';
+try{sb=supabase.createClient(SB_URL.trim(),SB_KEY.trim())}catch(x){cfgErr=x.message}
 const save=()=>{try{localStorage.setItem('mz1',JSON.stringify(S))}catch(x){}push()};
 function push(){if(!U)return;clearTimeout(tm);tm=setTimeout(async()=>{const r=await sb.from('budget').upsert({user_id:U.id,data:S,updated_at:new Date().toISOString()});if(r.error)console.error(r.error)},600)}
 const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -69,7 +70,7 @@ const fmtM=m=>m==null?'أكثر من 50 سنة':m>=12?Math.floor(m/12)+' سنة 
 const ar=d=>d.toLocaleDateString('ar-EG',{day:'numeric',month:'long'});
 function R(){const k=calc(),c=k.c;
 const tabs=[['sum','الملخص'],['fix','الثوابت'],['exp','المصروفات'],['debt','الديون'],['todo','المهام']];
-let h='<h1>مصاريفي</h1><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
+let h='<h1>مكتب احمد عبود</h1><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
 tabs.map(t=>'<button class="'+(tab==t[0]?'on':'')+'" onclick="tab=\''+t[0]+'\';R()">'+t[1]+'</button>').join('')+'<button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></nav>';
 const paid=S.paid[c.key]||[];
 const soon=S.fixed.filter(x=>!paid.includes(x.id)&&due(x,c).days<=3);
@@ -130,10 +131,11 @@ if(!S.todos.length)h+='<p class="mu">القائمة فاضية.</p>';
 S.todos.forEach(t=>{h+='<div class="it"><label class="'+(t.d?'done':'')+'"><input type="checkbox" '+(t.d?'checked':'')+' onchange="up(()=>S.todos.find(y=>y.id=='+t.id+').d=this.checked)"> '+e(t.n)+'</label><button class="b x" onclick="up(()=>S.todos=S.todos.filter(y=>y.id!='+t.id+'))">حذف</button></div>'});
 return h+'</div>'}
 function addTodo(){if(v('tn'))up(()=>S.todos.push({id:id(),n:v('tn'),d:false}))}
-function login(m){document.getElementById('app').innerHTML='<h1>مصاريفي</h1><div class="cd"><h2>تسجيل الدخول</h2><div class="row"><input id="em" class="f" type="email" placeholder="الإيميل"></div><div class="row"><input id="pw" class="f" type="password" placeholder="كلمة السر (6 حروف على الأقل)"></div><div class="row"><button class="b" onclick="auth(false)">دخول</button><button class="b" onclick="auth(true)">حساب جديد</button></div><p class="bad">'+e(m||'')+'</p></div>'}
+function login(m){document.getElementById('app').innerHTML='<h1>مكتب احمد عبود</h1><div class="cd"><h2>تسجيل الدخول</h2><div class="row"><input id="em" class="f" type="email" placeholder="الإيميل"></div><div class="row"><input id="pw" class="f" type="password" placeholder="كلمة السر (6 حروف على الأقل)"></div><div class="row"><button class="b" onclick="auth(false)">دخول</button><button class="b" onclick="auth(true)">حساب جديد</button></div><p class="bad">'+e(m||'')+'</p></div>'}
 async function auth(isNew){const c={email:v('em'),password:v('pw')};const r=isNew?await sb.auth.signUp(c):await sb.auth.signInWithPassword(c);if(r.error)return login(r.error.message);if(!r.data.session)return login('تم إنشاء الحساب. أكد الإيميل (لو مطلوب) وبعدين ادخل.');boot()}
 async function logout(){await sb.auth.signOut();U=null;login()}
-async function boot(){const g=await sb.auth.getSession();if(!g.data.session)return login();U=g.data.session.user;
+async function boot(){if(!sb)return document.getElementById('app').innerHTML='<div class="cd"><h2>إعداد Supabase ناقص</h2><p class="bad">'+e(cfgErr)+'</p><p>راجع سطر SB_URL و SB_KEY في أول الكود: لازم المفتاح الكامل يتحط بدل eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q.</p></div>';
+const g=await sb.auth.getSession();if(!g.data.session)return login();U=g.data.session.user;
 const r=await sb.from('budget').select('data').eq('user_id',U.id).maybeSingle();
 if(r.data&&r.data.data){S=Object.assign({},D,r.data.data);try{localStorage.setItem('mz1',JSON.stringify(S))}catch(x){}}else push();hid=!!S.pinHash;R()}
 const hs=async p=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mz:'+p)))].map(b=>b.toString(16).padStart(2,'0')).join('');
