@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مصاريفي</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f6f8;--cd:#fff;--tx:#1b1f24;--mu:#6b7280;--ac:#0f766e;--bd:#e3e6ea;--bad:#b91c1c;--ok:#15803d;--wn:#b45309}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f1316;--cd:#181d22;--tx:#e8eaed;--mu:#9aa3ad;--ac:#2dd4bf;--bd:#2a3138;--bad:#f87171;--ok:#4ade80;--wn:#fbbf24}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0f1316;--cd:#181d22;--tx:#e8eaed;--mu:#9aa3ad;--ac:#2dd4bf;--bd:#2a3138;--bad:#f87171;--ok:#4ade80;--wn:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.6 system-ui,"Segoe UI",Tahoma,Arial,sans-serif}
+#app{max-width:720px;margin:0 auto;padding:12px}
+h1{font-size:20px;margin:6px 0 2px}h2{font-size:16px;margin:0 0 8px}
+.sub{color:var(--mu);font-size:13px;margin-bottom:10px}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
+nav button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);padding:7px 13px;border-radius:20px;font:inherit;cursor:pointer}
+nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.cd{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.k{background:var(--bg);border-radius:10px;padding:8px 10px}.k b{display:block;font-size:17px}.k span{font-size:12px;color:var(--mu)}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,select{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;min-width:0}
+input.f{flex:1 1 90px}input.s{width:78px}
+.b{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:7px 13px;font:inherit;cursor:pointer}
+.b.x{background:transparent;color:var(--bad);padding:4px 8px}
+.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--bd)}
+.it:first-of-type{border-top:0}
+.bar{height:7px;background:var(--bd);border-radius:4px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;background:var(--ac)}
+.bad{color:var(--bad)}.ok{color:var(--ok)}.wn{color:var(--wn)}.mu{color:var(--mu);font-size:13px}
+.al{background:color-mix(in srgb,var(--wn) 15%,var(--cd));border:1px solid var(--wn);border-radius:10px;padding:9px 11px;margin-bottom:10px;font-size:14px}
+.done{text-decoration:line-through;color:var(--mu)}
+.t{overflow-x:auto}
+</style></head><body><div id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const D={salary:42000,fixed:[],paid:{},exp:[],extra:[],debts:[],dp:[],debtPct:30,method:'sn',
+cats:[{n:'أكل وشرب',p:35},{n:'مواصلات',p:15},{n:'ترفيه وشخصي',p:15},{n:'ادخار وطوارئ',p:25},{n:'متفرقات',p:10}],todos:[]};
+let S=(()=>{try{return Object.assign({},D,JSON.parse(localStorage.getItem('mz1')||'{}'))}catch(x){return D}})();
+let tab='sum';
+const SB_URL='sb_publishable_630zjwV9AZh2fTBJULYvDg_MYz1QM7N
+',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q';
+const sb=supabase.createClient(SB_URL,SB_KEY);let U=null,tm;
+const save=()=>{try{localStorage.setItem('mz1',JSON.stringify(S))}catch(x){}push()};
+function push(){if(!U)return;clearTimeout(tm);tm=setTimeout(async()=>{const r=await sb.from('budget').upsert({user_id:U.id,data:S,updated_at:new Date().toISOString()});if(r.error)console.error(r.error)},600)}
+const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let hid=false;const f=n=>hid?'••••':Math.round(n).toLocaleString('en-US');
+const v=id=>document.getElementById(id).value, nm=id=>parseFloat(v(id))||0;
+const z=n=>String(n).padStart(2,'0');
+const iso=d=>d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());
+const sum=a=>a.reduce((s,x)=>s+x,0);
+const id=()=>Date.now()+Math.random();
+function cyc(){const t=new Date();let y=t.getFullYear(),m=t.getMonth();if(t.getDate()<25){m--;if(m<0){m=11;y--}}
+const s=new Date(y,m,25),en=new Date(y,m+1,25),td=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+return{y,m,s,e:en,key:y+'-'+(m+1),td,left:Math.max(1,Math.round((en-td)/864e5))}}
+const inC=(d,c)=>{const x=new Date(d+'T00:00');return x>=c.s&&x<c.e};
+function up(fn){fn();save();R()}
+function calc(){const c=cyc(),ex=S.extra.filter(x=>inC(x.date,c)),extra=sum(ex.map(x=>x.a)),income=S.salary+extra,
+fixed=sum(S.fixed.map(x=>x.a)),af=income-fixed,open=S.debts.some(d=>d.b>0),
+allot=open?Math.max(0,af)*S.debtPct/100:0,rest=af-allot,xs=S.exp.filter(x=>inC(x.date,c)),spent=sum(xs.map(x=>x.a)),
+dpaid=sum(S.dp.filter(x=>inC(x.date,c)).map(x=>x.a));
+return{c,ex,extra,income,fixed,af,allot,rest,xs,spent,remain:rest-spent,daily:(rest-spent)/c.left,dpaid}}
+function due(x,c){const dt=x.d>=25?new Date(c.y,c.m,x.d):new Date(c.y,c.m+1,x.d);return{dt,days:Math.round((dt-c.td)/864e5)}}
+function plan(allot){let ds=S.debts.filter(d=>d.b>0).map(d=>({...d}));
+ds.sort(S.method=='av'?(a,b)=>(b.i||0)-(a.i||0):(a,b)=>a.b-b.b);
+let pool=allot;const now=ds.map(d=>{const p=Math.min(pool,d.b);pool-=p;return{...d,pay:p}});
+const out={};let m=0;
+if(allot>0)while(ds.some(d=>d.b>0)&&m<600){m++;let p=allot;ds.forEach(d=>{if(d.b>0)d.b+=d.b*(d.i||0)/1200});
+for(const d of ds){if(d.b<=0)continue;const q=Math.min(p,d.b);d.b-=q;p-=q;if(d.b<=0.5&&!out[d.id])out[d.id]=m}}
+return{now,out,m}}
+const fmtM=m=>m==null?'أكثر من 50 سنة':m>=12?Math.floor(m/12)+' سنة و '+(m%12)+' شهر':m+' شهر';
+const ar=d=>d.toLocaleDateString('ar-EG',{day:'numeric',month:'long'});
+function R(){const k=calc(),c=k.c;
+const tabs=[['sum','الملخص'],['fix','الثوابت'],['exp','المصروفات'],['debt','الديون'],['todo','المهام']];
+let h='<h1>مصاريفي</h1><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
+tabs.map(t=>'<button class="'+(tab==t[0]?'on':'')+'" onclick="tab=\''+t[0]+'\';R()">'+t[1]+'</button>').join('')+'<button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></nav>';
+const paid=S.paid[c.key]||[];
+const soon=S.fixed.filter(x=>!paid.includes(x.id)&&due(x,c).days<=3);
+if(soon.length&&tab!='fix')h+='<div class="al"><b>تفكير بالمدفوعات:</b> '+soon.map(x=>{const d=due(x,c).days;return e(x.n)+' ('+f(x.a)+') '+(d<0?'متأخر '+(-d)+' يوم':d==0?'النهاردة':'بعد '+d+' يوم')}).join(' · ')+'</div>';
+h+=({sum:vSum,fix:vFix,exp:vExp,debt:vDebt,todo:vTodo})[tab](k);
+document.getElementById('app').innerHTML=h}
+function vSum(k){const c=k.c;
+const col=k.remain<0?'bad':'ok';
+let h='<div class="cd"><div class="g"><div class="k"><span>إجمالي الدخل (راتب + إضافي)</span><b>'+f(k.income)+'</b></div>'+
+'<div class="k"><span>بنود ثابتة</span><b>'+f(k.fixed)+'</b></div>'+
+'<div class="k"><span>مخصص لسداد الديون</span><b>'+f(k.allot)+'</b></div>'+
+'<div class="k"><span>المتاح للمصروفات</span><b>'+f(k.rest)+'</b></div>'+
+'<div class="k"><span>اتصرف لحد دلوقتي</span><b>'+f(k.spent)+'</b></div>'+
+'<div class="k"><span>المتبقي</span><b class="'+col+'">'+f(k.remain)+'</b></div></div>'+
+'<p style="margin:10px 0 0">الحد اليومي المسموح: <b class="'+col+'">'+f(Math.max(0,k.daily))+' جنيه</b> في اليوم'+(k.remain<0?' — <span class="bad">تخطيت الميزانية بـ '+f(-k.remain)+'</span>':'')+'</p>'+
+(k.af<0?'<p class="bad">الثوابت أكتر من الدخل بـ '+f(-k.af)+' جنيه — راجع البنود.</p>':'')+'</div>';
+h+='<div class="cd"><h2>تقسيم المتاح على الفئات</h2>';
+const tot=sum(S.cats.map(x=>x.p));
+S.cats.forEach((x,i)=>{const lim=k.rest*x.p/100,sp=sum(k.xs.filter(y=>y.c==x.n).map(y=>y.a)),pc=lim>0?Math.min(100,sp/lim*100):0;
+h+='<div class="it" style="display:block"><div class="row" style="justify-content:space-between;margin:0"><span>'+e(x.n)+' <input class="s" type="number" value="'+x.p+'" onchange="up(()=>S.cats['+i+'].p=+this.value||0)">%</span><span>الحد '+f(lim)+' · اتصرف '+f(sp)+' · باقي <b class="'+(lim-sp<0?'bad':'ok')+'">'+f(lim-sp)+'</b></span></div><div class="bar"><i style="width:'+pc+'%;background:'+(sp>lim?'var(--bad)':'var(--ac)')+'"></i></div></div>'});
+h+='<div class="mu">مجموع النسب: '+tot+'%'+(tot!=100?' <span class="bad">(لازم يبقى 100%)</span>':'')+'</div></div>';
+h+='<div class="cd"><h2>الراتب والدخل الإضافي</h2><div class="row">الراتب الشهري (يتضاف يوم 25): '+(hid?'<b>••••</b>':'<input class="s" type="number" value="'+S.salary+'" onchange="up(()=>S.salary=+this.value||0)" style="width:100px">')+'</div>'+(!hid&&S.pinHash?'<div class="row"><button class="b" onclick="pinUI(\'cur\')">تغيير الكود</button><button class="b x" onclick="pinUI(\'rm\')">إلغاء الكود</button></div>':'')+
+'<div class="row"><input id="ea" class="f" type="number" placeholder="مبلغ إضافي (بونص...)"><input id="en" class="f" placeholder="ملاحظة"><button class="b" onclick="addExtra()">إضافة</button></div>';
+k.ex.forEach(x=>{h+='<div class="it"><span>+'+f(x.a)+' · '+e(x.n||'دخل إضافي')+' <span class="mu">'+x.date+'</span></span><button class="b x" onclick="up(()=>S.extra=S.extra.filter(y=>y.id!='+x.id+'))">حذف</button></div>'});
+return h+'</div>'}
+function addExtra(){const a=nm('ea');if(a>0)up(()=>S.extra.push({id:id(),a,n:v('en'),date:iso(new Date())}))}
+function vFix(k){const c=k.c,paid=S.paid[c.key]||[];
+let h='<div class="cd"><h2>البنود الثابتة الشهرية</h2><div class="mu">بتتكرر كل شهر وهفكرك قبل ميعادها بـ 3 أيام.</div><div class="row"><input id="fn" class="f" placeholder="البند (إيجار، نت...)"><input id="fa" class="s" type="number" placeholder="المبلغ"><input id="fd" class="s" type="number" min="1" max="31" placeholder="يوم"><button class="b" onclick="addFix()">إضافة</button></div>';
+if(!S.fixed.length)h+='<p class="mu">لسه مفيش بنود. أضف إيجار، كهرباء، موبايل، اشتراكات، أقساط...</p>';
+S.fixed.forEach(x=>{const d=due(x,c),p=paid.includes(x.id);
+h+='<div class="it"><span class="'+(p?'done':'')+'">'+e(x.n)+' · '+f(x.a)+' <span class="mu">(يوم '+x.d+' · '+(p?'مدفوع':d.days<0?'<b class=bad>متأخر</b>':d.days<=3?'<b class=wn>بعد '+d.days+' يوم</b>':'بعد '+d.days+' يوم')+')</span></span><span><button class="b" onclick="togPaid('+x.id+')">'+(p?'تراجع':'دفعت')+'</button><button class="b x" onclick="up(()=>S.fixed=S.fixed.filter(y=>y.id!='+x.id+'))">حذف</button></span></div>'});
+return h+'<p>إجمالي الثوابت: <b>'+f(k.fixed)+'</b> جنيه</p></div>'}
+function addFix(){const a=nm('fa'),d=Math.min(31,Math.max(1,nm('fd')|0||1));if(v('fn')&&a>0)up(()=>S.fixed.push({id:id(),n:v('fn'),a,d}))}
+function togPaid(i){up(()=>{const k=cyc().key,p=S.paid[k]=S.paid[k]||[];const j=p.indexOf(i);j<0?p.push(i):p.splice(j,1)})}
+function vExp(k){let h='<div class="cd"><h2>سجّل مصروف</h2><div class="row"><select id="xc">'+S.cats.map(x=>'<option>'+e(x.n)+'</option>').join('')+'</select><input id="xa" class="s" type="number" placeholder="المبلغ"><input id="xn" class="f" placeholder="ملاحظة"><button class="b" onclick="addExp()">إضافة</button></div>'+
+'<p class="mu">المتبقي النهاردة: '+f(k.remain)+' · الحد اليومي '+f(Math.max(0,k.daily))+'</p></div><div class="cd"><h2>مصروفات الدورة</h2>';
+if(!k.xs.length)h+='<p class="mu">لسه مفيش مصروفات.</p>';
+k.xs.slice().reverse().forEach(x=>{h+='<div class="it"><span>'+f(x.a)+' · '+e(x.c)+(x.n?' · '+e(x.n):'')+' <span class="mu">'+x.date+'</span></span><button class="b x" onclick="up(()=>S.exp=S.exp.filter(y=>y.id!='+x.id+'))">حذف</button></div>'});
+return h+'</div>'}
+function addExp(){const a=nm('xa');if(a>0)up(()=>S.exp.push({id:id(),a,c:v('xc'),n:v('xn'),date:iso(new Date())}))}
+function vDebt(k){const p=plan(k.allot),tot=sum(S.debts.map(d=>Math.max(0,d.b)));
+let h='<div class="cd"><h2>ديوني</h2><div class="row"><input id="dn" class="f" placeholder="اسم الدين"><input id="db" class="s" type="number" placeholder="المتبقي"><input id="di" class="s" type="number" placeholder="فايدة %/سنة"><button class="b" onclick="addDebt()">إضافة</button></div>';
+if(!S.debts.length)h+='<p class="mu">لو ملكش ديون سيبها فاضية وكل المتاح هيتوزع على الفئات.</p>';
+S.debts.forEach(d=>{h+='<div class="it"><span>'+e(d.n)+' · باقي <b>'+f(Math.max(0,d.b))+'</b>'+(d.i?' <span class="mu">('+d.i+'%)</span>':'')+(d.b<=0?' <b class="ok">اتسدد ✓</b>':'')+'</span><span><input class="s" id="p'+String(d.id).replace('.','')+'" type="number" placeholder="دفعت"><button class="b" onclick="payDebt('+d.id+')">سداد</button><button class="b x" onclick="up(()=>S.debts=S.debts.filter(y=>y.id!='+d.id+'))">حذف</button></span></div>'});
+h+='<p>إجمالي الديون: <b>'+f(tot)+'</b> جنيه</p></div>';
+if(tot>0){h+='<div class="cd"><h2>خطة السداد</h2><div class="row">نسبة من المتبقي بعد الثوابت: <input class="s" type="number" value="'+S.debtPct+'" onchange="up(()=>S.debtPct=Math.min(100,+this.value||0))">% الطريقة: <select onchange="up(()=>S.method=this.value)"><option value="sn"'+(S.method=='sn'?' selected':'')+'>الأصغر الأول (أسرع إحساس بالإنجاز)</option><option value="av"'+(S.method=='av'?' selected':'')+'>الأعلى فايدة الأول (أوفر)</option></select></div>'+
+'<p>المخصص للسداد الشهر ده: <b>'+f(k.allot)+'</b> جنيه (اتسدد '+f(k.dpaid)+')</p>';
+if(k.allot<=0)h+='<p class="bad">مفيش متبقي بعد الثوابت للسداد.</p>';
+else{h+='<div class="mu">ترتيب السداد والدفع المقترح الشهر ده:</div>';
+p.now.forEach((d,i)=>{h+='<div class="it"><span>'+(i+1)+'. '+e(d.n)+' → ادفع <b>'+f(d.pay)+'</b></span><span class="mu">يخلص بعد '+fmtM(p.out[d.id])+'</span></div>'});
+h+='<p>تخلص كل الديون تقريبًا بعد: <b>'+fmtM(p.m>=600?null:p.m)+'</b></p>'}
+h+='</div>'}
+return h}
+function addDebt(){const b=nm('db');if(v('dn')&&b>0)up(()=>S.debts.push({id:id(),n:v('dn'),b,i:nm('di')}))}
+function payDebt(i){const a=nm('p'+String(i).replace('.',''));if(a>0)up(()=>{const d=S.debts.find(x=>x.id==i);d.b=Math.max(0,d.b-a);S.dp.push({a,date:iso(new Date())})})}
+function vTodo(){let h='<div class="cd"><h2>قائمة المهام</h2><div class="row"><input id="tn" class="f" placeholder="أي حاجة عايزها (اشتري، ادفع، اسأل...)"><button class="b" onclick="addTodo()">إضافة</button></div>';
+if(!S.todos.length)h+='<p class="mu">القائمة فاضية.</p>';
+S.todos.forEach(t=>{h+='<div class="it"><label class="'+(t.d?'done':'')+'"><input type="checkbox" '+(t.d?'checked':'')+' onchange="up(()=>S.todos.find(y=>y.id=='+t.id+').d=this.checked)"> '+e(t.n)+'</label><button class="b x" onclick="up(()=>S.todos=S.todos.filter(y=>y.id!='+t.id+'))">حذف</button></div>'});
+return h+'</div>'}
+function addTodo(){if(v('tn'))up(()=>S.todos.push({id:id(),n:v('tn'),d:false}))}
+function login(m){document.getElementById('app').innerHTML='<h1>مصاريفي</h1><div class="cd"><h2>تسجيل الدخول</h2><div class="row"><input id="em" class="f" type="email" placeholder="الإيميل"></div><div class="row"><input id="pw" class="f" type="password" placeholder="كلمة السر (6 حروف على الأقل)"></div><div class="row"><button class="b" onclick="auth(false)">دخول</button><button class="b" onclick="auth(true)">حساب جديد</button></div><p class="bad">'+e(m||'')+'</p></div>'}
+async function auth(isNew){const c={email:v('em'),password:v('pw')};const r=isNew?await sb.auth.signUp(c):await sb.auth.signInWithPassword(c);if(r.error)return login(r.error.message);if(!r.data.session)return login('تم إنشاء الحساب. أكد الإيميل (لو مطلوب) وبعدين ادخل.');boot()}
+async function logout(){await sb.auth.signOut();U=null;login()}
+async function boot(){const g=await sb.auth.getSession();if(!g.data.session)return login();U=g.data.session.user;
+const r=await sb.from('budget').select('data').eq('user_id',U.id).maybeSingle();
+if(r.data&&r.data.data){S=Object.assign({},D,r.data.data);try{localStorage.setItem('mz1',JSON.stringify(S))}catch(x){}}else push();hid=!!S.pinHash;R()}
+const hs=async p=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mz:'+p)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+function tog(){if(hid)pinUI('unlock');else if(S.pinHash){hid=true;R()}else pinUI('set')}
+function pinX(){const o=document.getElementById('pv');if(o)o.remove()}
+function pinUI(mode,msg){let o=document.getElementById('pv');if(!o){o=document.createElement('div');o.id='pv';o.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px';document.body.appendChild(o)}
+const t={unlock:'اكتب الكود لإظهار الأرقام',set:'اختر كود أرقام (4 إلى 8)',cur:'اكتب الكود الحالي لتغييره',rm:'اكتب الكود الحالي لإلغائه'}[mode];
+o.innerHTML='<div class="cd" style="width:100%;max-width:320px;margin:0"><h2>'+t+'</h2><div class="row"><input id="pn" class="f" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" style="text-align:center;font-size:20px;letter-spacing:6px" onkeydown="if(event.key==\'Enter\')pinOk(\''+mode+'\')"></div><p class="bad">'+e(msg||'')+'</p><div class="row"><button class="b" onclick="pinOk(\''+mode+'\')">تأكيد</button><button class="b x" onclick="pinX()">إلغاء</button></div></div>';
+document.getElementById('pn').focus()}
+async function pinOk(mode){const p=v('pn');if(!/^\d{4,8}$/.test(p))return pinUI(mode,'الكود لازم يكون من 4 إلى 8 أرقام');
+if(mode=='set'){S.pinHash=await hs(p);hid=false;save();pinX();return R()}
+if(await hs(p)!==S.pinHash)return pinUI(mode,'الكود غلط');
+if(mode=='unlock'){hid=false;pinX();R()}
+else if(mode=='cur')pinUI('set')
+else if(mode=='rm'){delete S.pinHash;hid=false;save();pinX();R()}}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&U&&S.pinHash){hid=true;R()}});
+boot();
+</script></body></html>
