@@ -121,10 +121,10 @@ if(allot>0)while(ds.some(d=>d.b>0)&&m<600){m++;let p=allot;ds.forEach(d=>{if(d.b
 for(const d of ds){if(d.b<=0)continue;const q=Math.min(p,d.b);d.b-=q;p-=q;if(d.b<=0.5&&!out[d.id])out[d.id]=m}}
 return{now,out,m}}
 const fmtM=m=>m==null?'أكثر من 50 سنة':m>=12?Math.floor(m/12)+' سنة و '+(m%12)+' شهر':m+' شهر';
-const ar=d=>d.toLocaleDateString('ar-EG',{day:'numeric',month:'long'});
+const ar=d=>d.toLocaleDateString('ar-EG-u-nu-latn',{day:'numeric',month:'long'});
 function R(){document.body.classList.remove('lgn');const k=calc(),c=k.c;
-const tabs=[['sum','الملخص'],['fix','الثوابت'],['exp','المصروفات'],['debt','الديون'],['todo','المهام']];
-let h='<div class="hd"><h1>مكتب احمد عبود</h1><div class="tools"><button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></div></div><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
+const tabs=[['todo','المهام'],['sum','الملخص'],['fix','الثوابت'],['debt','الديون'],['exp','المصروفات']];
+let h='<div class="hd"><h1>مكتب احمد عبود</h1><div class="tools"><button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></div></div><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
 tabs.map(t=>'<button class="'+(tab==t[0]?'on':'')+'" onclick="tab=\''+t[0]+'\';R()">'+t[1]+'</button>').join('')+'</nav>';
 const paid=S.paid[c.key]||[];
 const soon=S.fixed.filter(x=>!paid.includes(x.id)&&due(x,c).days<=3);
