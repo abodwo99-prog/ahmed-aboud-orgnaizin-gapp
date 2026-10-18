@@ -1,33 +1,84 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14304a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="مكتب احمد عبود">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2314304a%22/><text x=%2250%22 y=%2273%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23d6a24a%22>ع</text></svg>">
 <title>مكتب احمد عبود</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f6f8;--cd:#fff;--tx:#1b1f24;--mu:#6b7280;--ac:#0f766e;--bd:#e3e6ea;--bad:#b91c1c;--ok:#15803d;--wn:#b45309}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#edf0ee;--cd:#fff;--tx:#16222e;--mu:#66737f;--bd:#d9dfdc;--ink:#14304a;--ac:#1f5c8a;--br:#b07d2b;--ok:#1e7a62;--bad:#b4412f;--wn:#9a6a12}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f1316;--cd:#181d22;--tx:#e8eaed;--mu:#9aa3ad;--ac:#2dd4bf;--bd:#2a3138;--bad:#f87171;--ok:#4ade80;--wn:#fbbf24}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#0f1316;--cd:#181d22;--tx:#e8eaed;--mu:#9aa3ad;--ac:#2dd4bf;--bd:#2a3138;--bad:#f87171;--ok:#4ade80;--wn:#fbbf24}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.6 system-ui,"Segoe UI",Tahoma,Arial,sans-serif}
-#app{max-width:720px;margin:0 auto;padding:12px}
-h1{font-size:20px;margin:6px 0 2px}h2{font-size:16px;margin:0 0 8px}
-.sub{color:var(--mu);font-size:13px;margin-bottom:10px}
-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
-nav button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);padding:7px 13px;border-radius:20px;font:inherit;cursor:pointer}
-nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.cd{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
-.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.k{background:var(--bg);border-radius:10px;padding:8px 10px}.k b{display:block;font-size:17px}.k span{font-size:12px;color:var(--mu)}
-.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:6px 0}
-input,select{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;min-width:0}
-input.f{flex:1 1 90px}input.s{width:78px}
-.b{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:7px 13px;font:inherit;cursor:pointer}
-.b.x{background:transparent;color:var(--bad);padding:4px 8px}
-.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--bd)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0d141b;--cd:#15202b;--tx:#e6ecf1;--mu:#8d9ba8;--bd:#243342;--ink:#1b4468;--ac:#5b9bd0;--br:#d6a24a;--ok:#4fc3a1;--bad:#f08a78;--wn:#e2b04a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0d141b;--cd:#15202b;--tx:#e6ecf1;--mu:#8d9ba8;--bd:#243342;--ink:#1b4468;--ac:#5b9bd0;--br:#d6a24a;--ok:#4fc3a1;--bad:#f08a78;--wn:#e2b04a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 "IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;font-variant-numeric:tabular-nums}
+#app{max-width:680px;margin:0 auto;padding:18px 16px 40px}
+h1{font:700 27px/1.3 "Reem Kufi","IBM Plex Sans Arabic",Tahoma,sans-serif;margin:4px 0 2px}
+h1::after{content:"";display:block;width:38px;height:3px;background:var(--br);margin-top:6px;border-radius:2px}
+h2{font-size:16px;font-weight:600;margin:0 0 10px}
+.sub{color:var(--mu);font-size:13px;margin:8px 0 14px}
+nav{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--bd);margin-bottom:16px}
+nav button{flex:none;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--mu);padding:9px 13px;font:inherit;font-weight:500;cursor:pointer}
+nav button.on{color:var(--tx);border-bottom-color:var(--br);font-weight:600}
+.hero{background:var(--ink);color:#fff;border-radius:20px;padding:22px 20px 18px;margin-bottom:8px}
+.hl{font-size:13px;opacity:.75}
+.hn{font:700 46px/1.2 "Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:2px 0 14px}.hn small{font:500 15px "IBM Plex Sans Arabic",sans-serif;opacity:.7}
+.hn.neg{color:#ffb4a6}
+.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;background:rgba(255,255,255,.14);gap:2px}
+.stack i{display:block;height:100%}
+.a{background:#7fa6c9}.b{background:#d6a24a}.c{background:#e9eef2}.d{background:#5fd1ae}
+.lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 0;font-size:13px}
+.lg u{display:inline-block;width:9px;height:9px;border-radius:50%;margin-inline-end:6px;text-decoration:none}
+.dl{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;font-size:15px}.dl b{font-size:18px}
+.cd{padding:18px 0;border-top:1px solid var(--bd);margin:0}
+.cd.box,#pv .cd{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:18px}
+.ln{display:flex;align-items:baseline;gap:8px;padding:3px 0}.ln i{flex:1;border-bottom:1px dotted var(--bd);transform:translateY(-4px)}.ln.tt{font-weight:600}
+.ln b.tt{color:var(--ac)}
+.cat{padding:9px 0}.ch{display:flex;justify-content:space-between;gap:8px}.cp{display:flex;align-items:center;gap:6px;color:var(--mu);font-size:13px;margin-top:5px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}
+input,select{font:inherit;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:8px 11px;min-width:0}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--br);outline-offset:1px}
+input.f{flex:1 1 100px}input.s{width:84px}
+.b{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:8px 15px;font:inherit;font-weight:500;cursor:pointer}
+.b.x{background:transparent;color:var(--bad);padding:6px 8px}
+.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--bd)}
 .it:first-of-type{border-top:0}
-.bar{height:7px;background:var(--bd);border-radius:4px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;background:var(--ac)}
+.bar{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--ac)}
 .bad{color:var(--bad)}.ok{color:var(--ok)}.wn{color:var(--wn)}.mu{color:var(--mu);font-size:13px}
-.al{background:color-mix(in srgb,var(--wn) 15%,var(--cd));border:1px solid var(--wn);border-radius:10px;padding:9px 11px;margin-bottom:10px;font-size:14px}
+.al{background:color-mix(in srgb,var(--wn) 14%,var(--cd));border-inline-start:4px solid var(--wn);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:14px}
 .done{text-decoration:line-through;color:var(--mu)}
-.t{overflow-x:auto}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.tools{display:flex;gap:6px;flex:none;margin-top:6px}
+.tools button{border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:20px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+select{max-width:100%}
+body.lgn{background:var(--ink)}body.lgn #app{max-width:none;padding:0}
+.lw{min-height:100dvh;display:flex;flex-direction:column;background:var(--ink)}
+.lh{padding:54px 28px 58px;color:#fff;text-align:center;background:radial-gradient(circle at 12% 10%,rgba(214,162,74,.28),transparent 42%),repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 1px,transparent 1px 16px)}
+.lh h1{color:#fff;font-size:31px;margin:16px 0 4px}.lh h1::after{margin:10px auto 0}
+.lh p{margin:10px 0 0;opacity:.78;font-size:14px}
+.mk{width:70px;height:70px;margin:0 auto;border:2px solid var(--br);border-radius:22px;display:grid;place-items:center;font:700 40px/1 "Reem Kufi",sans-serif;color:var(--br)}
+.lc{flex:1;background:var(--bg);border-radius:28px 28px 0 0;margin-top:-28px;padding:28px 22px calc(28px + env(safe-area-inset-bottom,0px))}
+.lc form{max-width:380px;margin:0 auto}
+.lc h2{font-size:20px;margin:0 0 4px}.lc .sb{color:var(--mu);font-size:14px;margin:0 0 18px}
+.lc label{display:block;font-size:13px;font-weight:500;margin:12px 0 5px}
+.lc input{width:100%;height:50px;font-size:16px}
+.pw{position:relative}.pw input{padding-inline-end:70px}
+.pw button{position:absolute;inset-inline-end:6px;top:7px;height:36px;border:0;background:transparent;color:var(--ac);font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:0 10px}
+.lc .go{width:100%;height:52px;margin-top:20px;font-size:16px;font-weight:600}
+.lc .go:disabled{opacity:.7}
+.er{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--bad) 12%,var(--cd));color:var(--bad);font-size:14px}
+@media(min-width:700px){.lw{justify-content:center}.lh{padding-bottom:70px}.lc{flex:none;width:430px;max-width:92%;margin:-30px auto 0;border-radius:24px;border:1px solid var(--bd)}}
+@media(max-width:640px){
+#app{padding:14px 14px 100px}
+h1{font-size:23px}.hn{font-size:40px}
+.hero{padding:18px 16px 14px;border-radius:18px}
+nav{position:fixed;inset:auto 0 0 0;z-index:20;background:var(--cd);border-top:1px solid var(--bd);border-bottom:0;margin:0;padding:0 4px env(safe-area-inset-bottom,0px);justify-content:space-around;overflow:visible}
+nav button{flex:1;padding:13px 2px 11px;font-size:13px;border-bottom:0;border-top:3px solid transparent}
+nav button.on{border-top-color:var(--br)}
+.row>input.f{flex:1 1 40%}
+.b{min-height:42px}.b.x{min-height:36px}
+.it{flex-wrap:wrap}
+}
 </style></head><body><div id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
@@ -68,34 +119,32 @@ for(const d of ds){if(d.b<=0)continue;const q=Math.min(p,d.b);d.b-=q;p-=q;if(d.b
 return{now,out,m}}
 const fmtM=m=>m==null?'أكثر من 50 سنة':m>=12?Math.floor(m/12)+' سنة و '+(m%12)+' شهر':m+' شهر';
 const ar=d=>d.toLocaleDateString('ar-EG',{day:'numeric',month:'long'});
-function R(){const k=calc(),c=k.c;
+function R(){document.body.classList.remove('lgn');const k=calc(),c=k.c;
 const tabs=[['sum','الملخص'],['fix','الثوابت'],['exp','المصروفات'],['debt','الديون'],['todo','المهام']];
-let h='<h1>مكتب احمد عبود</h1><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
-tabs.map(t=>'<button class="'+(tab==t[0]?'on':'')+'" onclick="tab=\''+t[0]+'\';R()">'+t[1]+'</button>').join('')+'<button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></nav>';
+let h='<div class="hd"><h1>مكتب احمد عبود</h1><div class="tools"><button onclick="tog()">'+(hid?'🔒 إظهار':S.pinHash?'🙈 إخفاء':'🔐 تعيين كود')+'</button><button onclick="logout()">خروج</button></div></div><div class="sub">دورة الشهر: من '+ar(c.s)+' إلى '+ar(new Date(c.e-864e5))+' · الراتب الجاي '+ar(c.e)+' (باقي '+c.left+' يوم)</div><nav>'+
+tabs.map(t=>'<button class="'+(tab==t[0]?'on':'')+'" onclick="tab=\''+t[0]+'\';R()">'+t[1]+'</button>').join('')+'</nav>';
 const paid=S.paid[c.key]||[];
 const soon=S.fixed.filter(x=>!paid.includes(x.id)&&due(x,c).days<=3);
 if(soon.length&&tab!='fix')h+='<div class="al"><b>تفكير بالمدفوعات:</b> '+soon.map(x=>{const d=due(x,c).days;return e(x.n)+' ('+f(x.a)+') '+(d<0?'متأخر '+(-d)+' يوم':d==0?'النهاردة':'بعد '+d+' يوم')}).join(' · ')+'</div>';
 h+=({sum:vSum,fix:vFix,exp:vExp,debt:vDebt,todo:vTodo})[tab](k);
 document.getElementById('app').innerHTML=h}
-function vSum(k){const c=k.c;
-const col=k.remain<0?'bad':'ok';
-let h='<div class="cd"><div class="g"><div class="k"><span>إجمالي الدخل (راتب + إضافي)</span><b>'+f(k.income)+'</b></div>'+
-'<div class="k"><span>بنود ثابتة</span><b>'+f(k.fixed)+'</b></div>'+
-'<div class="k"><span>مخصص لسداد الديون</span><b>'+f(k.allot)+'</b></div>'+
-'<div class="k"><span>المتاح للمصروفات</span><b>'+f(k.rest)+'</b></div>'+
-'<div class="k"><span>اتصرف لحد دلوقتي</span><b>'+f(k.spent)+'</b></div>'+
-'<div class="k"><span>المتبقي</span><b class="'+col+'">'+f(k.remain)+'</b></div></div>'+
-'<p style="margin:10px 0 0">الحد اليومي المسموح: <b class="'+col+'">'+f(Math.max(0,k.daily))+' جنيه</b> في اليوم'+(k.remain<0?' — <span class="bad">تخطيت الميزانية بـ '+f(-k.remain)+'</span>':'')+'</p>'+
-(k.af<0?'<p class="bad">الثوابت أكتر من الدخل بـ '+f(-k.af)+' جنيه — راجع البنود.</p>':'')+'</div>';
-h+='<div class="cd"><h2>تقسيم المتاح على الفئات</h2>';
+function vSum(k){const c=k.c,inc=Math.max(k.income,1);
+const seg=(x,cl)=>'<i class="'+cl+'" style="width:'+Math.max(0,Math.min(100,x/inc*100))+'%"></i>';
+let h='<section class="hero"><div class="hl">المتبقي من ميزانية الشهر</div><div class="hn '+(k.remain<0?'neg':'')+'">'+f(k.remain)+' <small>جنيه</small></div><div class="stack">'+seg(k.fixed,'a')+seg(k.allot,'b')+seg(Math.min(k.spent,Math.max(0,k.rest)),'c')+seg(Math.max(0,k.remain),'d')+'</div>'+
+'<div class="lg"><span><u class="a"></u>ثوابت '+f(k.fixed)+'</span><span><u class="b"></u>ديون '+f(k.allot)+'</span><span><u class="c"></u>مصروف '+f(k.spent)+'</span><span><u class="d"></u>باقي '+f(Math.max(0,k.remain))+'</span></div>'+
+'<div class="dl">'+(k.remain<0?'تخطيت الميزانية بـ <b>'+f(-k.remain)+'</b> جنيه':'تقدر تصرف <b>'+f(Math.max(0,k.daily))+' جنيه</b> في اليوم لمدة '+c.left+' يوم')+'</div></section>';
+if(k.af<0)h+='<p class="bad">البنود الثابتة أكتر من الدخل بـ '+f(-k.af)+' جنيه. راجع البنود.</p>';
+const L=(a,b,cl)=>'<div class="ln'+(cl?' tt':'')+'"><span>'+a+'</span><i></i><b class="'+(cl||'')+'">'+b+'</b></div>';
+h+='<section class="cd"><h2>حساب الشهر</h2>'+L('الراتب',f(S.salary))+(k.extra?L('دخل إضافي','+'+f(k.extra)):'')+L('بنود ثابتة','−'+f(k.fixed))+(k.allot?L('سداد ديون','−'+f(k.allot)):'')+L('المتاح للمصروفات',f(k.rest),'tt')+'</section>';
+h+='<section class="cd"><h2>الحدود حسب الفئة</h2>';
 const tot=sum(S.cats.map(x=>x.p));
 S.cats.forEach((x,i)=>{const lim=k.rest*x.p/100,sp=sum(k.xs.filter(y=>y.c==x.n).map(y=>y.a)),pc=lim>0?Math.min(100,sp/lim*100):0;
-h+='<div class="it" style="display:block"><div class="row" style="justify-content:space-between;margin:0"><span>'+e(x.n)+' <input class="s" type="number" value="'+x.p+'" onchange="up(()=>S.cats['+i+'].p=+this.value||0)">%</span><span>الحد '+f(lim)+' · اتصرف '+f(sp)+' · باقي <b class="'+(lim-sp<0?'bad':'ok')+'">'+f(lim-sp)+'</b></span></div><div class="bar"><i style="width:'+pc+'%;background:'+(sp>lim?'var(--bad)':'var(--ac)')+'"></i></div></div>'});
-h+='<div class="mu">مجموع النسب: '+tot+'%'+(tot!=100?' <span class="bad">(لازم يبقى 100%)</span>':'')+'</div></div>';
-h+='<div class="cd"><h2>الراتب والدخل الإضافي</h2><div class="row">الراتب الشهري (يتضاف يوم 25): '+(hid?'<b>••••</b>':'<input class="s" type="number" value="'+S.salary+'" onchange="up(()=>S.salary=+this.value||0)" style="width:100px">')+'</div>'+(!hid&&S.pinHash?'<div class="row"><button class="b" onclick="pinUI(\'cur\')">تغيير الكود</button><button class="b x" onclick="pinUI(\'rm\')">إلغاء الكود</button></div>':'')+
+h+='<div class="cat"><div class="ch"><span>'+e(x.n)+'</span><span class="'+(sp>lim?'bad':'')+'">'+f(sp)+' من '+f(lim)+'</span></div><div class="bar"><i style="width:'+pc+'%;background:'+(sp>lim?'var(--bad)':'var(--ac)')+'"></i></div><div class="cp"><input class="s" type="number" value="'+x.p+'" onchange="up(()=>S.cats['+i+'].p=+this.value||0)">% <span>باقي '+f(lim-sp)+'</span></div></div>'});
+h+='<div class="mu">مجموع النسب: '+tot+'%'+(tot!=100?' <span class="bad">(لازم يبقى 100%)</span>':'')+'</div></section>';
+h+='<section class="cd"><h2>الراتب والدخل الإضافي</h2><div class="row">الراتب الشهري (يتضاف يوم 25): '+(hid?'<b>••••</b>':'<input class="s" type="number" value="'+S.salary+'" onchange="up(()=>S.salary=+this.value||0)" style="width:100px">')+'</div>'+(!hid&&S.pinHash?'<div class="row"><button class="b" onclick="pinUI(\'cur\')">تغيير الكود</button><button class="b x" onclick="pinUI(\'rm\')">إلغاء الكود</button></div>':'')+
 '<div class="row"><input id="ea" class="f" type="number" placeholder="مبلغ إضافي (بونص...)"><input id="en" class="f" placeholder="ملاحظة"><button class="b" onclick="addExtra()">إضافة</button></div>';
 k.ex.forEach(x=>{h+='<div class="it"><span>+'+f(x.a)+' · '+e(x.n||'دخل إضافي')+' <span class="mu">'+x.date+'</span></span><button class="b x" onclick="up(()=>S.extra=S.extra.filter(y=>y.id!='+x.id+'))">حذف</button></div>'});
-return h+'</div>'}
+return h+'</section>'}
 function addExtra(){const a=nm('ea');if(a>0)up(()=>S.extra.push({id:id(),a,n:v('en'),date:iso(new Date())}))}
 function vFix(k){const c=k.c,paid=S.paid[c.key]||[];
 let h='<div class="cd"><h2>البنود الثابتة الشهرية</h2><div class="mu">بتتكرر كل شهر وهفكرك قبل ميعادها بـ 3 أيام.</div><div class="row"><input id="fn" class="f" placeholder="البند (إيجار، نت...)"><input id="fa" class="s" type="number" placeholder="المبلغ"><input id="fd" class="s" type="number" min="1" max="31" placeholder="يوم"><button class="b" onclick="addFix()">إضافة</button></div>';
@@ -131,8 +180,15 @@ if(!S.todos.length)h+='<p class="mu">القائمة فاضية.</p>';
 S.todos.forEach(t=>{h+='<div class="it"><label class="'+(t.d?'done':'')+'"><input type="checkbox" '+(t.d?'checked':'')+' onchange="up(()=>S.todos.find(y=>y.id=='+t.id+').d=this.checked)"> '+e(t.n)+'</label><button class="b x" onclick="up(()=>S.todos=S.todos.filter(y=>y.id!='+t.id+'))">حذف</button></div>'});
 return h+'</div>'}
 function addTodo(){if(v('tn'))up(()=>S.todos.push({id:id(),n:v('tn'),d:false}))}
-function login(m){document.getElementById('app').innerHTML='<h1>مكتب احمد عبود</h1><div class="cd"><h2>تسجيل الدخول</h2><div class="row"><input id="em" class="f" type="email" placeholder="الإيميل"></div><div class="row"><input id="pw" class="f" type="password" placeholder="كلمة السر (6 حروف على الأقل)"></div><div class="row"><button class="b" onclick="auth(false)">دخول</button><button class="b" onclick="auth(true)">حساب جديد</button></div><p class="bad">'+e(m||'')+'</p></div>'}
-async function auth(isNew){const c={email:v('em'),password:v('pw')};const r=isNew?await sb.auth.signUp(c):await sb.auth.signInWithPassword(c);if(r.error)return login(r.error.message);if(!r.data.session)return login('تم إنشاء الحساب. أكد الإيميل (لو مطلوب) وبعدين ادخل.');boot()}
+function login(m,em){document.body.classList.add('lgn');let sv='';try{sv=em||localStorage.getItem('mz_em')||''}catch(x){}
+document.getElementById('app').innerHTML='<div class="lw"><div class="lh"><div class="mk">ع</div><h1>مكتب احمد عبود</h1></div><div class="lc"><form onsubmit="auth(event)"><h2>أهلاً بيك</h2><p class="sb">سجّل دخولك عشان تكمل.</p>'+
+'<label for="em">الإيميل</label><input id="em" type="email" inputmode="email" autocomplete="username" dir="ltr" value="'+e(sv)+'" required>'+
+'<label for="pw">كلمة السر</label><div class="pw"><input id="pw" type="password" autocomplete="current-password" dir="ltr" required><button type="button" onclick="const p=document.getElementById(\'pw\');p.type=p.type==\'password\'?\'text\':\'password\';this.textContent=p.type==\'password\'?\'إظهار\':\'إخفاء\'">إظهار</button></div>'+
+(m?'<div class="er">'+e(m)+'</div>':'')+'<button id="lb" class="b go" type="submit">دخول</button></form></div></div>'}
+async function auth(ev){ev.preventDefault();const b=document.getElementById('lb');b.disabled=true;b.textContent='جاري الدخول...';const em=v('em').trim();
+let r;try{r=await sb.auth.signInWithPassword({email:em,password:v('pw')})}catch(x){return login('مفيش اتصال بالإنترنت. جرّب تاني.',em)}
+if(r.error)return login(/invalid login/i.test(r.error.message)?'الإيميل أو كلمة السر غلط. جرّب تاني.':'تعذر الدخول: '+r.error.message,em);
+try{localStorage.setItem('mz_em',em)}catch(x){}boot()}
 async function logout(){await sb.auth.signOut();U=null;login()}
 async function boot(){if(!sb)return document.getElementById('app').innerHTML='<div class="cd"><h2>إعداد Supabase ناقص</h2><p class="bad">'+e(cfgErr)+'</p><p>راجع سطر SB_URL و SB_KEY في أول الكود: لازم المفتاح الكامل يتحط بدل eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q.</p></div>';
 const g=await sb.auth.getSession();if(!g.data.session)return login();U=g.data.session.user;
