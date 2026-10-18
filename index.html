@@ -47,6 +47,9 @@ input.f{flex:1 1 100px}input.s{width:84px}
 .bad{color:var(--bad)}.ok{color:var(--ok)}.wn{color:var(--wn)}.mu{color:var(--mu);font-size:13px}
 .al{background:color-mix(in srgb,var(--wn) 14%,var(--cd));border-inline-start:4px solid var(--wn);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:14px}
 .done{text-decoration:line-through;color:var(--mu)}
+.frm{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.frm .full{grid-column:1/-1}.frm input,.frm select{width:100%}
+.it.col{display:block}.it.col .ch{align-items:baseline}.act{display:flex;gap:6px;margin-top:8px}.act input{flex:1}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
 .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .tools{display:flex;gap:6px;flex:none;margin-top:6px}
 .tools button{border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:20px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
@@ -142,30 +145,30 @@ S.cats.forEach((x,i)=>{const lim=k.rest*x.p/100,sp=sum(k.xs.filter(y=>y.c==x.n).
 h+='<div class="cat"><div class="ch"><span>'+e(x.n)+'</span><span class="'+(sp>lim?'bad':'')+'">'+f(sp)+' من '+f(lim)+'</span></div><div class="bar"><i style="width:'+pc+'%;background:'+(sp>lim?'var(--bad)':'var(--ac)')+'"></i></div><div class="cp"><input class="s" type="number" value="'+x.p+'" onchange="up(()=>S.cats['+i+'].p=+this.value||0)">% <span>باقي '+f(lim-sp)+'</span></div></div>'});
 h+='<div class="mu">مجموع النسب: '+tot+'%'+(tot!=100?' <span class="bad">(لازم يبقى 100%)</span>':'')+'</div></section>';
 h+='<section class="cd"><h2>الراتب والدخل الإضافي</h2><div class="row">الراتب الشهري (يتضاف يوم 25): '+(hid?'<b>••••</b>':'<input class="s" type="number" value="'+S.salary+'" onchange="up(()=>S.salary=+this.value||0)" style="width:100px">')+'</div>'+(!hid&&S.pinHash?'<div class="row"><button class="b" onclick="pinUI(\'cur\')">تغيير الكود</button><button class="b x" onclick="pinUI(\'rm\')">إلغاء الكود</button></div>':'')+
-'<div class="row"><input id="ea" class="f" type="number" placeholder="مبلغ إضافي (بونص...)"><input id="en" class="f" placeholder="ملاحظة"><button class="b" onclick="addExtra()">إضافة</button></div>';
+'<div class="frm"><input id="ea" type="number" inputmode="decimal" placeholder="مبلغ إضافي (بونص...)"><input id="en" placeholder="ملاحظة (اختياري)"><button class="b full" onclick="addExtra()">إضافة الدخل</button></div>';
 k.ex.forEach(x=>{h+='<div class="it"><span>+'+f(x.a)+' · '+e(x.n||'دخل إضافي')+' <span class="mu">'+x.date+'</span></span><button class="b x" onclick="up(()=>S.extra=S.extra.filter(y=>y.id!='+x.id+'))">حذف</button></div>'});
 return h+'</section>'}
 function addExtra(){const a=nm('ea');if(a>0)up(()=>S.extra.push({id:id(),a,n:v('en'),date:iso(new Date())}))}
 function vFix(k){const c=k.c,paid=S.paid[c.key]||[];
-let h='<div class="cd"><h2>البنود الثابتة الشهرية</h2><div class="mu">بتتكرر كل شهر وهفكرك قبل ميعادها بـ 3 أيام.</div><div class="row"><input id="fn" class="f" placeholder="البند (إيجار، نت...)"><input id="fa" class="s" type="number" placeholder="المبلغ"><input id="fd" class="s" type="number" min="1" max="31" placeholder="يوم"><button class="b" onclick="addFix()">إضافة</button></div>';
+let h='<div class="cd"><h2>البنود الثابتة الشهرية</h2><div class="mu">بتتكرر كل شهر وهفكرك قبل ميعادها بـ 3 أيام.</div><div class="frm"><input id="fn" class="full" placeholder="اسم البند (إيجار، نت...)"><input id="fa" type="number" inputmode="decimal" placeholder="المبلغ"><input id="fd" type="number" inputmode="numeric" min="1" max="31" placeholder="يوم الاستحقاق"><button class="b full" onclick="addFix()">إضافة البند</button></div>';
 if(!S.fixed.length)h+='<p class="mu">لسه مفيش بنود. أضف إيجار، كهرباء، موبايل، اشتراكات، أقساط...</p>';
 S.fixed.forEach(x=>{const d=due(x,c),p=paid.includes(x.id);
 h+='<div class="it"><span class="'+(p?'done':'')+'">'+e(x.n)+' · '+f(x.a)+' <span class="mu">(يوم '+x.d+' · '+(p?'مدفوع':d.days<0?'<b class=bad>متأخر</b>':d.days<=3?'<b class=wn>بعد '+d.days+' يوم</b>':'بعد '+d.days+' يوم')+')</span></span><span><button class="b" onclick="togPaid('+x.id+')">'+(p?'تراجع':'دفعت')+'</button><button class="b x" onclick="up(()=>S.fixed=S.fixed.filter(y=>y.id!='+x.id+'))">حذف</button></span></div>'});
 return h+'<p>إجمالي الثوابت: <b>'+f(k.fixed)+'</b> جنيه</p></div>'}
 function addFix(){const a=nm('fa'),d=Math.min(31,Math.max(1,nm('fd')|0||1));if(v('fn')&&a>0)up(()=>S.fixed.push({id:id(),n:v('fn'),a,d}))}
 function togPaid(i){up(()=>{const k=cyc().key,p=S.paid[k]=S.paid[k]||[];const j=p.indexOf(i);j<0?p.push(i):p.splice(j,1)})}
-function vExp(k){let h='<div class="cd"><h2>سجّل مصروف</h2><div class="row"><select id="xc">'+S.cats.map(x=>'<option>'+e(x.n)+'</option>').join('')+'</select><input id="xa" class="s" type="number" placeholder="المبلغ"><input id="xn" class="f" placeholder="ملاحظة"><button class="b" onclick="addExp()">إضافة</button></div>'+
+function vExp(k){let h='<div class="cd"><h2>سجّل مصروف</h2><div class="frm"><select id="xc" class="full">'+S.cats.map(x=>'<option>'+e(x.n)+'</option>').join('')+'</select><input id="xa" type="number" inputmode="decimal" placeholder="المبلغ"><input id="xn" placeholder="ملاحظة (اختياري)"><button class="b full" onclick="addExp()">إضافة المصروف</button></div>'+
 '<p class="mu">المتبقي النهاردة: '+f(k.remain)+' · الحد اليومي '+f(Math.max(0,k.daily))+'</p></div><div class="cd"><h2>مصروفات الدورة</h2>';
 if(!k.xs.length)h+='<p class="mu">لسه مفيش مصروفات.</p>';
 k.xs.slice().reverse().forEach(x=>{h+='<div class="it"><span>'+f(x.a)+' · '+e(x.c)+(x.n?' · '+e(x.n):'')+' <span class="mu">'+x.date+'</span></span><button class="b x" onclick="up(()=>S.exp=S.exp.filter(y=>y.id!='+x.id+'))">حذف</button></div>'});
 return h+'</div>'}
 function addExp(){const a=nm('xa');if(a>0)up(()=>S.exp.push({id:id(),a,c:v('xc'),n:v('xn'),date:iso(new Date())}))}
 function vDebt(k){const p=plan(k.allot),tot=sum(S.debts.map(d=>Math.max(0,d.b)));
-let h='<div class="cd"><h2>ديوني</h2><div class="row"><input id="dn" class="f" placeholder="اسم الدين"><input id="db" class="s" type="number" placeholder="المتبقي"><input id="di" class="s" type="number" placeholder="فايدة %/سنة"><button class="b" onclick="addDebt()">إضافة</button></div>';
+let h='<div class="cd"><h2>ديوني</h2><div class="frm"><input id="dn" class="full" placeholder="اسم الدين"><input id="db" type="number" inputmode="decimal" placeholder="المبلغ المتبقي"><input id="di" type="number" inputmode="decimal" placeholder="فايدة سنوية % (اختياري)"><button class="b full" onclick="addDebt()">إضافة الدين</button></div>';
 if(!S.debts.length)h+='<p class="mu">لو ملكش ديون سيبها فاضية وكل المتاح هيتوزع على الفئات.</p>';
-S.debts.forEach(d=>{h+='<div class="it"><span>'+e(d.n)+' · باقي <b>'+f(Math.max(0,d.b))+'</b>'+(d.i?' <span class="mu">('+d.i+'%)</span>':'')+(d.b<=0?' <b class="ok">اتسدد ✓</b>':'')+'</span><span><input class="s" id="p'+String(d.id).replace('.','')+'" type="number" placeholder="دفعت"><button class="b" onclick="payDebt('+d.id+')">سداد</button><button class="b x" onclick="up(()=>S.debts=S.debts.filter(y=>y.id!='+d.id+'))">حذف</button></span></div>'});
+S.debts.forEach(d=>{h+='<div class="it col"><div class="ch"><b>'+e(d.n)+'</b><span>باقي <b>'+f(Math.max(0,d.b))+'</b>'+(d.i?' <span class="mu">(فايدة '+d.i+'%)</span>':'')+(d.b<=0?' <b class="ok">اتسدد ✓</b>':'')+'</span></div><div class="act"><input id="p'+String(d.id).replace('.','')+'" type="number" inputmode="decimal" placeholder="مبلغ السداد"><button class="b" onclick="payDebt('+d.id+')">سداد</button><button class="b x" onclick="up(()=>S.debts=S.debts.filter(y=>y.id!='+d.id+'))">حذف</button></div></div>'});
 h+='<p>إجمالي الديون: <b>'+f(tot)+'</b> جنيه</p></div>';
-if(tot>0){h+='<div class="cd"><h2>خطة السداد</h2><div class="row">نسبة من المتبقي بعد الثوابت: <input class="s" type="number" value="'+S.debtPct+'" onchange="up(()=>S.debtPct=Math.min(100,+this.value||0))">% الطريقة: <select onchange="up(()=>S.method=this.value)"><option value="sn"'+(S.method=='sn'?' selected':'')+'>الأصغر الأول (أسرع إحساس بالإنجاز)</option><option value="av"'+(S.method=='av'?' selected':'')+'>الأعلى فايدة الأول (أوفر)</option></select></div>'+
+if(tot>0){h+='<div class="cd"><h2>خطة السداد</h2><div class="row">نسبة السداد من المتبقي بعد الثوابت: <input class="s" type="number" value="'+S.debtPct+'" onchange="up(()=>S.debtPct=Math.min(100,+this.value||0))">%</div><div class="row">طريقة السداد: <select style="width:100%" onchange="up(()=>S.method=this.value)"><option value="sn"'+(S.method=='sn'?' selected':'')+'>الأصغر الأول (أسرع إحساس بالإنجاز)</option><option value="av"'+(S.method=='av'?' selected':'')+'>الأعلى فايدة الأول (أوفر)</option></select></div>'+
 '<p>المخصص للسداد الشهر ده: <b>'+f(k.allot)+'</b> جنيه (اتسدد '+f(k.dpaid)+')</p>';
 if(k.allot<=0)h+='<p class="bad">مفيش متبقي بعد الثوابت للسداد.</p>';
 else{h+='<div class="mu">ترتيب السداد والدفع المقترح الشهر ده:</div>';
