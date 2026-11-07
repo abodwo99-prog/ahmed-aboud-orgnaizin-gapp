@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#14304a"><title>مكتب احمد عبود | RFP</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2314304a%22/><text x=%2250%22 y=%2273%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23d6a24a%22>ع</text></svg>">
+<meta name="theme-color" content="#14304a"><title>Soft Services RFP&#39;s Editable Bulk</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2314304a%22/><text x=%2250%22 y=%2273%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23d6a24a%22>S</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#edf0ee;--cd:#fff;--tx:#16222e;--mu:#66737f;--bd:#d9dfdc;--ink:#14304a;--ac:#1f5c8a;--br:#b07d2b;--ok:#1e7a62;--bad:#b4412f}
@@ -27,10 +27,8 @@ input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px soli
 .lw{max-width:380px;margin:60px auto 0}.lw input{height:48px}
 .sec{font-weight:600;margin:18px 0 2px;color:var(--ac)}
 </style></head><body><div id="app"></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-const SB_URL='https://aoutyafrchecgpafsdnf.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvdXR5YWZyY2hlY2dwYWZzZG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNTMzNDEsImV4cCI6MjEwNzkyOTM0MX0.b6DwnZxaJCNf87Xk40_tjCd8xqcRmHMK_ElP9Q58B9Q';
 const SV=[{id:'hk',n:'Housekeeping',tpl:'templates/housekeeping.docx'},{id:'fc',n:'الواجهات'},{id:'pc',n:'مكافحة الحشرات'},{id:'af',n:'ماكينات المعطر'},{id:'wr',n:'رفع المخلفات'},{id:'sa',n:'مشغل Serviced Apartment'}];
 const MP=[['MP1','مدير مشروع'],['MP2','مشرف عام'],['MP3','مشرف ميداني'],['MP4','عمال أولاد'],['MP5','عمال بنات'],['MP6','إداري موقع']];
 const REVIEW=['جدول Table 1 (Included / Excluded): راجع كل بند لأنه منقول من مشروع تاني (مجتمع، حمام سباحة، مساجد، Caretaker...)',
@@ -45,14 +43,12 @@ const REVIEW=['جدول Table 1 (Included / Excluded): راجع كل بند لأ
 'إشارة Clause 17 في جدول الـ KPI: اتأكد إنها بتشاور على بند فعلي في العقد',
 'لوجو CPM (OPM) في هيدر الملف: سيبه أو شيله حسب قرارك'];
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let sb=null,U=null,tab='hk',msg='',D={};
-try{sb=supabase.createClient(SB_URL,SB_KEY)}catch(x){}
+let tab='hk',msg='',D={};
 const ld=()=>{try{return JSON.parse(localStorage.getItem('rfp1')||'{}')}catch(x){return{}}};D=ld();
-let tm;function save(){try{localStorage.setItem('rfp1',JSON.stringify(D))}catch(x){}
-if(!U)return;clearTimeout(tm);tm=setTimeout(async()=>{const r=await sb.from('rfp_drafts').upsert({user_id:U.id,service:tab,data:D[tab]||{},updated_at:new Date().toISOString()},{onConflict:'user_id,service'});if(r.error)console.error(r.error)},700)}
+function save(){try{localStorage.setItem('rfp1',JSON.stringify(D))}catch(x){}}
 const g=k=>(D[tab]=D[tab]||{})[k]??'';
 function fld(k,l,ph,cls){return '<label class="'+(cls||'')+'">'+l+'<input data-k="'+k+'" value="'+e(g(k))+'" placeholder="'+(ph||'')+'"></label>'}
-function R(){document.body.style.background='';let h='<div class="hd"><h1>مكتب احمد عبود</h1><button class="b x" onclick="out()">خروج</button></div><div class="mu">مولّد ملفات RFP</div><nav>'+
+function R(){document.body.style.background='';let h='<h1>Soft Services RFP\'s Editable Bulk</h1><div class="mu">مولّد ملفات RFP قابلة للتعديل</div><nav>'+
 SV.map(s=>'<button class="'+(tab==s.id?'on':'')+'" onclick="tab=\''+s.id+'\';msg=\'\';R()">'+e(s.n)+'</button>').join('')+'</nav>';
 const s=SV.find(x=>x.id==tab);
 if(!s.tpl){h+='<div class="cd"><h2>'+e(s.n)+'</h2><p class="mu">القسم ده جاهز في النظام وبانتظار ملف الـ RFP الخاص بيه وقائمة التعديلات اليدوية.</p></div>'}
@@ -92,11 +88,5 @@ const bl=await z.generateAsync({type:'blob',mimeType:'application/vnd.openxmlfor
 a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=s.n+'-RFP-'+d.COVER_DATE.replace(/[^\w]+/g,'_')+'.docx';a.click();msg='✓ تم تنزيل الملف'}
 catch(err){msg='حصل خطأ: '+err.message}
 R()}
-function login(m,em){document.body.style.background='var(--ink)';document.getElementById('app').innerHTML='<div class="lw cd"><h1>مكتب احمد عبود</h1><form onsubmit="auth(event)"><label>الإيميل<input id="em" type="email" dir="ltr" value="'+e(em||'')+'" required></label><label>كلمة السر<input id="pw" type="password" dir="ltr" required></label>'+(m?'<div class="er">'+e(m)+'</div>':'')+'<button class="b w" id="lb">دخول</button></form></div>'}
-async function auth(ev){ev.preventDefault();const em=document.getElementById('em').value.trim();let r;try{r=await sb.auth.signInWithPassword({email:em,password:document.getElementById('pw').value})}catch(x){return login('مفيش اتصال بالإنترنت',em)}
-if(r.error)return login('الإيميل أو كلمة السر غلط',em);boot()}
-async function out(){await sb.auth.signOut();U=null;login()}
-async function boot(){const s=await sb.auth.getSession();if(!s.data.session)return login();U=s.data.session.user;
-const r=await sb.from('rfp_drafts').select('service,data');if(r.data)r.data.forEach(x=>{D[x.service]=Object.assign({},x.data,D[x.service]||{})});R()}
-if(sb)boot();else login('إعداد Supabase ناقص');
+R();
 </script></body></html>
