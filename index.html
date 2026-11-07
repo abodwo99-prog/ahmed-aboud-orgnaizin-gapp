@@ -1,36 +1,67 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#14304a"><title>Soft Services RFP&#39;s Editable Bulk</title>
+<meta name="theme-color" content="#14304a"><title>Soft Services RFP's Editable Bulk</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2314304a%22/><text x=%2250%22 y=%2273%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23d6a24a%22>S</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#edf0ee;--cd:#fff;--tx:#16222e;--mu:#66737f;--bd:#d9dfdc;--ink:#14304a;--ac:#1f5c8a;--br:#b07d2b;--ok:#1e7a62;--bad:#b4412f}
-@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0d141b;--cd:#15202b;--tx:#e6ecf1;--mu:#8d9ba8;--bd:#243342;--ink:#1b4468;--ac:#5b9bd0;--br:#d6a24a;--ok:#4fc3a1;--bad:#f08a78}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 "IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
-#app{max-width:680px;margin:0 auto;padding:18px 16px 40px}
-h1{font:700 26px/1.3 "Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:4px 0}h1::after{content:"";display:block;width:38px;height:3px;background:var(--br);margin-top:6px;border-radius:2px}
-h2{font-size:16px;font-weight:600;margin:0 0 10px}.mu{color:var(--mu);font-size:13px}
-nav{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--bd);margin:12px 0 16px}
-nav button{flex:none;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--mu);padding:9px 13px;font:inherit;font-weight:500;cursor:pointer}
-nav button.on{color:var(--tx);border-bottom-color:var(--br);font-weight:600}
-.cd{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:14px}
-label{display:block;font-size:13px;font-weight:500;margin:12px 0 5px}
-input,textarea{font:inherit;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:9px 11px;width:100%;min-width:0}
-textarea{min-height:110px;resize:vertical}
-input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--br);outline-offset:1px}
-.g{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.g label.full{grid-column:1/-1}
-.b{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:500;cursor:pointer}
-.b.x{background:transparent;color:var(--bad);padding:6px 8px}.b.w{width:100%;margin-top:14px;min-height:48px}.b:disabled{opacity:.6}
-.ck{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--bd);font-size:14px}.ck input{width:auto;margin-top:5px}
-.er{color:var(--bad);font-size:14px;margin:10px 0 0}.ok{color:var(--ok);font-size:14px;margin:10px 0 0}
-.hd{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.lw{max-width:380px;margin:60px auto 0}.lw input{height:48px}
-.sec{font-weight:600;margin:18px 0 2px;color:var(--ac)}
-</style></head><body><div id="app"></div>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#e8ecf0;--cd:#fff;--tx:#16222e;--mu:#617080;--bd:#d5dce3;--ink:#14304a;--ac:#1f5c8a;--br:#b07d2b;--ok:#1e7a62;--bad:#b4412f;--pp:#fff;--ppt:#1b2733;--hl:#fff3c4}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0c131a;--cd:#14202b;--tx:#e6ecf1;--mu:#8d9ba8;--bd:#243342;--ink:#0f2a42;--ac:#5b9bd0;--br:#d6a24a;--ok:#4fc3a1;--bad:#f08a78;--pp:#f4f6f8;--ppt:#1b2733;--hl:#5a4a14}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 "IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
+header{background:var(--ink);color:#fff;padding:22px 20px 0}
+.in{max-width:1080px;margin:0 auto}
+.top{display:flex;align-items:center;gap:14px;padding-bottom:18px}
+.mk{width:46px;height:46px;border:2px solid var(--br);border-radius:14px;display:grid;place-items:center;font:700 24px/1 "Reem Kufi",sans-serif;color:var(--br);flex:none}
+h1{font:700 24px/1.25 "Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:0;direction:ltr;text-align:right}
+.sb{font-size:13px;opacity:.72}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
+nav button{flex:none;border:0;background:transparent;color:#fff;opacity:.62;padding:11px 16px;font:inherit;font-weight:500;cursor:pointer;border-radius:12px 12px 0 0;white-space:nowrap}
+nav button:hover{opacity:.9}nav button.on{background:var(--bg);color:var(--tx);opacity:1;font-weight:600}
+nav button i{font-style:normal;font-size:11px;margin-inline-start:6px;opacity:.7}
+main{max-width:1080px;margin:0 auto;padding:22px 16px 110px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}
+.fm{display:grid;gap:16px}
+.cd{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:20px}
+h2{font-size:16px;font-weight:600;margin:0}.hs{display:block;color:var(--mu);font-size:13px;margin:2px 0 14px}
+label{display:block;font-size:13px;font-weight:500;margin:0 0 5px}
+input,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:9px;padding:10px 12px;width:100%;min-width:0;transition:border-color .15s,background .15s}
+input:focus,textarea:focus{background:var(--cd);border-color:var(--ac);outline:0}textarea{min-height:120px;resize:vertical}
+button:focus-visible,summary:focus-visible,.dz:focus-within{outline:2px solid var(--br);outline-offset:2px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:14px}.rq{color:var(--bad);font-weight:400;margin-inline-start:4px}
+.dz{position:relative;display:flex;align-items:center;gap:14px;border:1.5px dashed var(--bd);border-radius:12px;padding:12px;background:var(--bg);cursor:pointer}
+.dz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.th{width:104px;height:52px;border-radius:7px;background:var(--bd) center/cover;flex:none}
+.mp{display:grid;gap:0;border:1px solid var(--bd);border-radius:11px;overflow:hidden}
+.mr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 8px 7px 14px;border-top:1px solid var(--bd)}.mr:first-child{border-top:0}
+.mr input{width:84px;text-align:center;font-weight:600}.mr.t{background:var(--bg);font-weight:600;padding:12px 14px}
+details summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none}summary::-webkit-details-marker{display:none}
+.pg{font-size:13px;color:var(--mu);white-space:nowrap}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--bd);font-size:14px;font-weight:400;margin:0}.ck input{width:18px;height:18px;margin-top:4px;flex:none;accent-color:var(--ok)}
+.ck:has(input:checked) span{color:var(--mu);text-decoration:line-through}
+aside{position:sticky;top:14px}
+.ph{font-size:13px;color:var(--mu);margin:0 4px 8px;display:flex;justify-content:space-between}
+.pp{background:var(--pp);color:var(--ppt);border-radius:6px;padding:26px 24px;box-shadow:0 1px 2px rgba(0,0,0,.18),0 10px 30px rgba(10,30,50,.16);direction:ltr;font:13px/1.5 "Palatino Linotype",Palatino,Georgia,serif}
+.pp .lg{display:flex;justify-content:space-between;font:11px "IBM Plex Sans Arabic",sans-serif;color:#7a8794;border-bottom:1px solid #d8dde2;padding-bottom:8px;margin-bottom:22px}
+.pp .t1{font-size:21px;font-weight:700;color:#1f497d;text-align:center}.pp .t2{text-align:center;font-weight:700;margin-top:3px}.pp .t3{text-align:center;color:#1f497d;font-weight:700;margin:2px 0}
+.pp .dt{text-align:center;font-weight:700;color:#1f497d;margin:18px 0 20px}
+.pp hr{border:0;border-top:1px solid #d8dde2;margin:14px 0}
+.pp b.k{font-weight:600}.pp table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.pp td{border:1px solid #b9c1c9;padding:3px 7px}.pp td:last-child{text-align:center;width:70px;font-weight:700}.pp tr.t td{background:#eef1f4;font-weight:700}
+.pp .sc{margin:6px 0 0;padding-inline-start:18px;font-size:12px}.pp em{font-style:normal;background:var(--hl);padding:0 4px;border-radius:2px}
+.bar{position:fixed;inset:auto 0 0 0;background:var(--cd);border-top:1px solid var(--bd);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));z-index:5}
+.bar .in{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.bt{font-size:13px;color:var(--mu)}.bt b{color:var(--tx)}
+.b{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:12px 26px;font:inherit;font-weight:600;cursor:pointer;min-height:46px;transition:transform .1s}.b:active{transform:scale(.98)}.b:disabled{opacity:.6}
+.er{color:var(--bad)}.ok{color:var(--ok)}
+.em{padding:34px 10px;text-align:center;color:var(--mu)}
+@media(max-width:860px){main{grid-template-columns:1fr}aside{position:static;order:2}.g{grid-template-columns:1fr 1fr}.bt{display:none}.b{width:100%}h1{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="in"><div class="top"><div class="mk">S</div><div><h1>Soft Services RFP's Editable Bulk</h1><div class="sb">ملفات RFP جاهزة للتعديل والتنزيل</div></div></div><nav id="nv"></nav></div></header>
+<main id="mn"></main>
+<div class="bar" id="br"><div class="in"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-const SV=[{id:'hk',n:'Housekeeping',tpl:'templates/housekeeping.docx'},{id:'fc',n:'الواجهات'},{id:'pc',n:'مكافحة الحشرات'},{id:'af',n:'ماكينات المعطر'},{id:'wr',n:'رفع المخلفات'},{id:'sa',n:'مشغل Serviced Apartment'}];
-const MP=[['MP1','مدير مشروع'],['MP2','مشرف عام'],['MP3','مشرف ميداني'],['MP4','عمال أولاد'],['MP5','عمال بنات'],['MP6','إداري موقع']];
+const SV=[{id:'hk',n:'Housekeeping',tpl:'templates/housekeeping.docx',t:'Housekeeping (Outdoor, Indoor) Services'},{id:'fc',n:'الواجهات'},{id:'pc',n:'مكافحة الحشرات'},{id:'af',n:'ماكينات المعطر'},{id:'wr',n:'رفع المخلفات'},{id:'sa',n:'مشغل Serviced Apartment'}];
+const MP=[['MP1','مدير مشروع','Project Manager'],['MP2','مشرف عام','General Supervisor'],['MP3','مشرف ميداني','Field Supervisor'],['MP4','عمال أولاد','Workers (Male)'],['MP5','عمال بنات','Workers (Female)'],['MP6','إداري موقع','Site Administrator']];
 const REVIEW=['جدول Table 1 (Included / Excluded): راجع كل بند لأنه منقول من مشروع تاني (مجتمع، حمام سباحة، مساجد، Caretaker...)',
 'جدول Table 2 والـ Cleaning Period: التكرارات المناسبة للمشروع',
 'ساعات التشغيل: فيه تعارض داخل الملف (7:30-5:30 / 8-5 / 8:30 ص - 9 م وكتوب 9 ساعات / 8-8 وكتوب 12 ساعة) وحّدها حسب المشروع',
@@ -43,50 +74,61 @@ const REVIEW=['جدول Table 1 (Included / Excluded): راجع كل بند لأ
 'إشارة Clause 17 في جدول الـ KPI: اتأكد إنها بتشاور على بند فعلي في العقد',
 'لوجو CPM (OPM) في هيدر الملف: سيبه أو شيله حسب قرارك'];
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let tab='hk',msg='',D={};
-const ld=()=>{try{return JSON.parse(localStorage.getItem('rfp1')||'{}')}catch(x){return{}}};D=ld();
-function save(){try{localStorage.setItem('rfp1',JSON.stringify(D))}catch(x){}}
+let tab='hk',msg='',D={},IMG=null;
+try{D=JSON.parse(localStorage.getItem('rfp1')||'{}')}catch(x){}
+const save=()=>{try{localStorage.setItem('rfp1',JSON.stringify(D))}catch(x){}};
 const g=k=>(D[tab]=D[tab]||{})[k]??'';
-function fld(k,l,ph,cls){return '<label class="'+(cls||'')+'">'+l+'<input data-k="'+k+'" value="'+e(g(k))+'" placeholder="'+(ph||'')+'"></label>'}
-function R(){document.body.style.background='';let h='<h1>Soft Services RFP\'s Editable Bulk</h1><div class="mu">مولّد ملفات RFP قابلة للتعديل</div><nav>'+
-SV.map(s=>'<button class="'+(tab==s.id?'on':'')+'" onclick="tab=\''+s.id+'\';msg=\'\';R()">'+e(s.n)+'</button>').join('')+'</nav>';
-const s=SV.find(x=>x.id==tab);
-if(!s.tpl){h+='<div class="cd"><h2>'+e(s.n)+'</h2><p class="mu">القسم ده جاهز في النظام وبانتظار ملف الـ RFP الخاص بيه وقائمة التعديلات اليدوية.</p></div>'}
-else{h+='<div class="cd"><h2>بيانات الـ Tender (تتغير يدويًا كل مرة)</h2><div class="g">'+
-fld('COVER_DATE','تاريخ الغلاف (السنة)','1st of JAN 2027')+fld('CONTRACT_YEARS','مدة العقد (سنين)','3')+fld('STEADY_YEAR','سنة الـ Steady State','2028')+fld('KPI_THRESHOLD','حد الأداء المقبول %','95')+'</div>'+
-'<label>خريطة المراحل (صفحة 3)<input id="img" type="file" accept="image/*"></label>'+
-'<div class="sec">جدول Manpower (تحت Staffing Requirements)</div><div class="g">'+MP.map(m=>fld(m[0],m[1],'العدد')).join('')+'</div>'+
-'<label class="full">Basic Scope: ALL phase 1 scope (سطر لكل بند)<textarea data-k="BASIC_SCOPE" placeholder="ALL phase 1 scope: public areas, common area, gates...">'+e(g('BASIC_SCOPE'))+'</textarea></label>'+
-'<label class="full">Optional Scope (Phase Two) (سيبه فاضي لو مفيش خطط مستقبلية)<textarea data-k="OPTIONAL_SCOPE" placeholder="ALL phase 2 scope: ...">'+e(g('OPTIONAL_SCOPE'))+'</textarea></label>'+
-'<button class="b w" id="go" onclick="gen()">تنزيل ملف الـ RFP</button>'+(msg?'<div class="'+(msg[0]=='✓'?'ok':'er')+'">'+e(msg)+'</div>':'')+'</div>'+
-'<div class="cd"><h2>بنود تراجعها يدويًا في كل Tender</h2><div class="mu">المنظومة مش بتغيرها، لازم تعدلها بنفسك قبل الإرسال.</div>'+
-REVIEW.map((t,i)=>'<label class="ck"><input type="checkbox" data-c="'+i+'" '+(g('ck'+i)?'checked':'')+'><span>'+e(t)+'</span></label>').join('')+'</div>'}
-document.getElementById('app').innerHTML=h}
-document.addEventListener('input',ev=>{const t=ev.target,k=t.dataset&&t.dataset.k;if(k){(D[tab]=D[tab]||{})[k]=t.value;save()}});
-document.addEventListener('change',ev=>{const t=ev.target;if(t.dataset&&t.dataset.c!=null){(D[tab]=D[tab]||{})['ck'+t.dataset.c]=t.checked;save()}});
+const $=i=>document.getElementById(i);
+const lines=t=>String(g(t)).split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+const total=()=>MP.reduce((a,m)=>a+(parseFloat(g(m[0]))||0),0);
+const need=()=>['COVER_DATE','CONTRACT_YEARS','BASIC_SCOPE'].filter(k=>!String(g(k)).trim());
+const NM={COVER_DATE:'تاريخ الغلاف',CONTRACT_YEARS:'مدة العقد',BASIC_SCOPE:'Basic Scope'};
+function fl(k,l,ph,r,t){return '<div><label>'+l+(r?'<span class="rq">مطلوب</span>':'')+'</label><input data-k="'+k+'" '+(t?'type="'+t+'" inputmode="numeric" ':'')+'value="'+e(g(k))+'" placeholder="'+ph+'" dir="ltr"></div>'}
+function nav(){$('nv').innerHTML=SV.map(s=>'<button class="'+(tab==s.id?'on':'')+'" onclick="tab=\''+s.id+'\';msg=\'\';IMG=null;R()">'+e(s.n)+(s.tpl?'':'<i>قريبًا</i>')+'</button>').join('')}
+function pv(){const s=SV.find(x=>x.id==tab);if(!s.tpl||!$('pv'))return;const ph=(v,p)=>v?e(v):'<em>'+p+'</em>',B=lines('BASIC_SCOPE'),O=lines('OPTIONAL_SCOPE');
+$('pv').innerHTML='<div class="lg"><span>ORA PROPERTIES</span><span>Page 1</span></div><div class="t1">Ora – Zed West</div><div class="t2">Zayed City, Egypt</div><div class="t2" style="margin-top:14px">Request For Proposal</div><div class="t3">'+s.t+'</div><div class="t3" style="font-weight:400">Facilities Management Tender</div><div class="dt">'+ph(g('COVER_DATE'),'تاريخ الغلاف')+'</div><hr>'+
+'<div>The contract … is for a period of <b class="k">'+ph(g('CONTRACT_YEARS'),'…')+'</b> years</div><div>Steady State by or before <b class="k">'+ph(g('STEADY_YEAR'),'…')+'</b></div><hr><b class="k">Required Manpower (Minimum)</b><table>'+
+MP.map(m=>'<tr><td>'+m[2]+'</td><td>'+(g(m[0])?e(g(m[0])):'-')+'</td></tr>').join('')+'<tr class="t"><td>Total</td><td>'+(total()||'-')+'</td></tr></table><hr><b class="k">Basic Scope</b>'+
+(B.length?'<ul class="sc">'+B.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>':'<div><em>Basic Scope</em></div>')+(O.length?'<hr><b class="k">Optional Scope (Phase Two)</b><ul class="sc">'+O.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>':'');
+$('tt').textContent=total()||'-';cf();bar()}
+function cf(){const el=$('cp');if(el)el.textContent=REVIEW.filter((_,i)=>g('ck'+i)).length+' من '+REVIEW.length}
+function bar(){const n=need(),el=$('br');if(!SV.find(x=>x.id==tab).tpl){el.style.display='none';return}el.style.display='';
+el.firstElementChild.innerHTML='<div class="bt">'+(msg?'<b class="'+(msg[0]=='✓'?'ok':'er')+'">'+e(msg)+'</b>':n.length?'ناقص: <b>'+n.map(k=>NM[k]).join('، ')+'</b>':'<b class="ok">البيانات الأساسية كاملة</b>')+'</div><button class="b" id="go" onclick="gen()">تنزيل ملف الـ RFP (Word)</button>'}
+function R(){nav();const s=SV.find(x=>x.id==tab),m=$('mn');
+if(!s.tpl){m.style.gridTemplateColumns='1fr';m.innerHTML='<div class="cd em"><h2>'+e(s.n)+'</h2><span class="hs" style="margin:6px 0 0">القسم جاهز في النظام. ابعت ملف الـ RFP الخاص بيه وقائمة التعديلات اليدوية وهيتفعّل.</span></div>';return bar()}
+m.style.gridTemplateColumns='';
+m.innerHTML='<div class="fm"><div class="cd"><h2>بيانات الـ Tender</h2><span class="hs">بتتغير يدويًا مع كل ملف جديد</span><div class="g">'+fl('COVER_DATE','تاريخ الغلاف','1st of JAN 2027',1)+fl('CONTRACT_YEARS','مدة العقد (سنين)','3',1)+fl('STEADY_YEAR','سنة الـ Steady State','2028')+fl('KPI_THRESHOLD','حد الأداء المقبول %','95')+'</div></div>'+
+'<div class="cd"><h2>خريطة المراحل</h2><span class="hs">بتظهر في صفحة 3 مكان الـ Site Plan</span><label class="dz"><div class="th" id="th"></div><div><b>اضغط لاختيار صورة</b><div class="mu" id="fn" style="color:var(--mu);font-size:13px">لو ما اخترتش، هتفضل الخريطة الحالية في الـ Template</div></div><input id="img" type="file" accept="image/*"></label></div>'+
+'<div class="cd"><h2>جدول Manpower</h2><span class="hs">تحت Staffing Requirements في صفحة 4</span><div class="mp">'+MP.map(x=>'<div class="mr"><span>'+x[1]+'</span><input data-k="'+x[0]+'" type="number" min="0" inputmode="numeric" value="'+e(g(x[0]))+'" placeholder="0" dir="ltr"></div>').join('')+'<div class="mr t"><span>الإجمالي</span><span id="tt">-</span></div></div></div>'+
+'<div class="cd"><h2>Basic Scope<span class="rq">مطلوب</span></h2><span class="hs">ALL phase 1 scope، اكتب كل بند في سطر</span><textarea data-k="BASIC_SCOPE" placeholder="Public areas&#10;Common areas&#10;Gates">'+e(g('BASIC_SCOPE'))+'</textarea></div>'+
+'<div class="cd"><h2>Optional Scope (Phase Two)</h2><span class="hs">سيبه فاضي لو مفيش خطط مستقبلية، والقسم هيتشال من الملف</span><textarea data-k="OPTIONAL_SCOPE" placeholder="ALL phase 2 scope">'+e(g('OPTIONAL_SCOPE'))+'</textarea></div>'+
+'<details class="cd"><summary><div><h2>تراجعها يدويًا قبل الإرسال</h2><span class="hs" style="margin:2px 0 0">النظام مش بيغيرها</span></div><span class="pg" id="cp"></span></summary>'+REVIEW.map((t,i)=>'<label class="ck"><input type="checkbox" data-c="'+i+'" '+(g('ck'+i)?'checked':'')+'><span>'+e(t)+'</span></label>').join('')+'</details></div>'+
+'<aside><div class="ph"><span>معاينة مباشرة</span><span>بتتحدث وأنت بتكتب</span></div><div class="pp" id="pv"></div></aside>';
+pv()}
+document.addEventListener('input',ev=>{const t=ev.target,k=t.dataset&&t.dataset.k;if(k){(D[tab]=D[tab]||{})[k]=t.value;msg='';save();pv()}});
+document.addEventListener('change',ev=>{const t=ev.target;if(t.dataset&&t.dataset.c!=null){(D[tab]=D[tab]||{})['ck'+t.dataset.c]=t.checked;save();cf()}
+if(t.id=='img'&&t.files[0]){IMG=t.files[0];$('th').style.backgroundImage='url('+URL.createObjectURL(IMG)+')';$('fn').textContent=IMG.name}});
 const x2=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 async function toJpeg(f){const u=URL.createObjectURL(f),im=new Image();await new Promise((r,j)=>{im.onload=r;im.onerror=j;im.src=u});
 const W=2116,H=1046,c=document.createElement('canvas');c.width=W;c.height=H;const q=c.getContext('2d');q.fillStyle='#fff';q.fillRect(0,0,W,H);
 const k=Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;q.drawImage(im,(W-w)/2,(H-h)/2,w,h);URL.revokeObjectURL(u);
 return new Promise(r=>c.toBlob(r,'image/jpeg',.9))}
-async function gen(){const b=document.getElementById('go'),d=D[tab]||{};msg='';
-for(const k of['COVER_DATE','CONTRACT_YEARS','BASIC_SCOPE'])if(!(d[k]||'').trim()){msg='املأ: تاريخ الغلاف، مدة العقد، و Basic Scope';return R()}
-b.disabled=true;b.textContent='جاري التجهيز...';
+async function gen(){const b=$('go'),d=D[tab]||{};if(need().length){msg='املأ: '+need().map(k=>NM[k]).join('، ');return bar()}
+b.disabled=true;b.textContent='جاري التجهيز...';msg='';
 try{const s=SV.find(x=>x.id==tab),z=await JSZip.loadAsync(await(await fetch(s.tpl)).arrayBuffer());
 let x=await z.file('word/document.xml').async('string');
 const rp=(t,v)=>{x=x.split('{{'+t+'}}').join(x2(v))};
 rp('COVER_DATE',d.COVER_DATE.trim());rp('CONTRACT_YEARS',d.CONTRACT_YEARS.trim());rp('STEADY_YEAR',(d.STEADY_YEAR||'').trim());rp('KPI_THRESHOLD',(d.KPI_THRESHOLD||'95').trim());
-let tot=0;MP.forEach(m=>{const v=(d[m[0]]||'').trim();tot+=parseFloat(v)||0;rp(m[0],v||'-')});rp('MPT',tot||'-');
-const lines=t=>(d[t]||'').split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+MP.forEach(m=>rp(m[0],(d[m[0]]||'').trim()||'-'));rp('MPT',total()||'-');
 for(const t of['BASIC_SCOPE','OPTIONAL_SCOPE']){const tk='{{'+t+'}}',i=x.indexOf(tk);if(i<0)continue;
-const a=x.lastIndexOf('<w:p ',i),c=x.indexOf('</w:p>',i)+6,p=x.slice(a,c),L=lines(t);
-x=x.slice(0,a)+L.map(l=>p.replace(tk,x2(l))).join('')+x.slice(c)}
+const a=x.lastIndexOf('<w:p ',i),c=x.indexOf('</w:p>',i)+6,p=x.slice(a,c);
+x=x.slice(0,a)+lines(t).map(l=>p.replace(tk,x2(l))).join('')+x.slice(c)}
 x=x.split('<w:highlight w:val="yellow"/>').join('');
 z.file('word/document.xml',x);
-const im=document.getElementById('img');if(im&&im.files[0])z.file('word/media/image1.jpeg',await toJpeg(im.files[0]));
+if(IMG)z.file('word/media/image1.jpeg',await toJpeg(IMG));
 const bl=await z.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}),
 a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=s.n+'-RFP-'+d.COVER_DATE.replace(/[^\w]+/g,'_')+'.docx';a.click();msg='✓ تم تنزيل الملف'}
 catch(err){msg='حصل خطأ: '+err.message}
-R()}
+bar()}
 R();
 </script></body></html>
