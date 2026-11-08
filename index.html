@@ -8,29 +8,40 @@
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0c131a;--cd:#14202b;--tx:#e6ecf1;--mu:#8d9ba8;--bd:#243342;--ink:#0f2a42;--ac:#5b9bd0;--br:#d6a24a;--ok:#4fc3a1;--bad:#f08a78;--pp:#f4f6f8;--ppt:#1b2733;--hl:#5a4a14}}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 "IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
-header{background:var(--ink);color:#fff;padding:22px 20px 0}
+header{background:var(--ink);color:#fff;padding:20px 20px 18px}
 .in{max-width:1080px;margin:0 auto}
-.top{display:flex;align-items:center;gap:14px;padding-bottom:18px}
+.top{display:flex;align-items:center;gap:14px}
 .mk{width:46px;height:46px;border:2px solid var(--br);border-radius:14px;display:grid;place-items:center;font:700 24px/1 "Reem Kufi",sans-serif;color:var(--br);flex:none}
 h1{font:700 24px/1.25 "Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:0;direction:ltr;text-align:right}
 .sb{font-size:13px;opacity:.72}
-nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
-nav button{flex:none;border:0;background:transparent;color:#fff;opacity:.62;padding:11px 16px;font:inherit;font-weight:500;cursor:pointer;border-radius:12px 12px 0 0;white-space:nowrap}
-nav button:hover{opacity:.9}nav button.on{background:var(--bg);color:var(--tx);opacity:1;font-weight:600}
-nav button i{font-style:normal;font-size:11px;margin-inline-start:6px;opacity:.7}
-main{max-width:1080px;margin:0 auto;padding:22px 16px 110px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}
+.crumb{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px}
+.crumb button{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:9px;padding:6px 12px;font:inherit;cursor:pointer}
+.crumb span{opacity:.8}
+main{max-width:1080px;margin:0 auto;padding:22px 16px 110px}
+.home{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.win{background:var(--cd);border:1px solid var(--bd);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.wh{background:var(--ink);color:#fff;padding:22px 20px;border-bottom:3px solid var(--br)}
+.wh b{display:block;font:700 28px/1.2 "Reem Kufi","IBM Plex Sans Arabic",sans-serif;direction:ltr;text-align:right}
+.wh span{font-size:13px;opacity:.75}
+.wb{padding:12px;display:grid;gap:8px}
+.sv{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);border-radius:11px;padding:13px 14px;font:inherit;font-weight:500;cursor:pointer;text-align:start;width:100%;transition:border-color .15s,transform .1s}
+.sv:hover{border-color:var(--br)}.sv:active{transform:scale(.99)}.sv[disabled]{opacity:.55;cursor:default}
+.sv small{color:var(--mu);font-weight:400;font-size:12px;white-space:nowrap}
+.sv .dot{color:var(--ok)}
+.sep{font-size:12px;color:var(--mu);margin:6px 4px 0;font-weight:600}
+.ed{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}
 .fm{display:grid;gap:16px}
 .cd{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:20px}
 h2{font-size:16px;font-weight:600;margin:0}.hs{display:block;color:var(--mu);font-size:13px;margin:2px 0 14px}
 label{display:block;font-size:13px;font-weight:500;margin:0 0 5px}
 input,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:9px;padding:10px 12px;width:100%;min-width:0;transition:border-color .15s,background .15s}
-input:focus,textarea:focus{background:var(--cd);border-color:var(--ac);outline:0}textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus{background:var(--cd);border-color:var(--ac);outline:0}textarea{min-height:110px;resize:vertical}
 button:focus-visible,summary:focus-visible,.dz:focus-within{outline:2px solid var(--br);outline-offset:2px}
 .g{display:grid;grid-template-columns:1fr 1fr;gap:14px}.rq{color:var(--bad);font-weight:400;margin-inline-start:4px}
 .dz{position:relative;display:flex;align-items:center;gap:14px;border:1.5px dashed var(--bd);border-radius:12px;padding:12px;background:var(--bg);cursor:pointer}
 .dz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.th{width:104px;height:52px;border-radius:7px;background:var(--bd) center/cover;flex:none}
-.mp{display:grid;gap:0;border:1px solid var(--bd);border-radius:11px;overflow:hidden}
+.th{width:104px;height:64px;border-radius:7px;background:var(--bd) center/cover no-repeat;flex:none}
+.mp{display:grid;border:1px solid var(--bd);border-radius:11px;overflow:hidden}
 .mr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 8px 7px 14px;border-top:1px solid var(--bd)}.mr:first-child{border-top:0}
 .mr input{width:84px;text-align:center;font-weight:600}.mr.t{background:var(--bg);font-weight:600;padding:12px 14px}
 details summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none}summary::-webkit-details-marker{display:none}
@@ -50,87 +61,92 @@ aside{position:sticky;top:14px}
 .bar .in{display:flex;align-items:center;gap:16px;justify-content:space-between}
 .bt{font-size:13px;color:var(--mu)}.bt b{color:var(--tx)}
 .b{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:12px 26px;font:inherit;font-weight:600;cursor:pointer;min-height:46px;transition:transform .1s}.b:active{transform:scale(.98)}.b:disabled{opacity:.6}
-.er{color:var(--bad)}.ok{color:var(--ok)}
-.em{padding:34px 10px;text-align:center;color:var(--mu)}
-@media(max-width:860px){main{grid-template-columns:1fr}aside{position:static;order:2}.g{grid-template-columns:1fr 1fr}.bt{display:none}.b{width:100%}h1{font-size:20px}}
+.er{color:var(--bad)!important}.ok{color:var(--ok)!important}
+@media(max-width:900px){.home{grid-template-columns:1fr}.ed{grid-template-columns:1fr}aside{position:static;order:2}.bt{display:none}.b{width:100%}h1{font-size:20px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
-<header><div class="in"><div class="top"><div class="mk">S</div><div><h1>Soft Services RFP's Editable Bulk</h1><div class="sb">ملفات RFP جاهزة للتعديل والتنزيل</div></div></div><nav id="nv"></nav></div></header>
+<header><div class="in"><div class="top"><div class="mk">S</div><div><h1>Soft Services RFP's Editable Bulk</h1><div class="sb">ملفات RFP جاهزة للتعديل والتنزيل</div></div></div><div class="crumb" id="cr" hidden></div></div></header>
 <main id="mn"></main>
-<div class="bar" id="br"><div class="in"></div></div>
+<div class="bar" id="br" hidden><div class="in"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-const SV=[{id:'hk',n:'Housekeeping',tpl:'templates/housekeeping.docx',t:'Housekeeping (Outdoor, Indoor) Services'},{id:'fc',n:'الواجهات'},{id:'pc',n:'مكافحة الحشرات'},{id:'af',n:'ماكينات المعطر'},{id:'wr',n:'رفع المخلفات'},{id:'sa',n:'مشغل Serviced Apartment'}];
+const M={"ze-hk":{"proj":"Zed East","svc":"hk","kpi":true,"steady":true,"years":true,"cover_extra":["Phase C3","Common areas – Kids Areas – Gates – Roads (Internal – External) Basement B1-B2 – Cleaning Paid Service"],"cover":true,"mp":false,"tbl":true,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":5943600,"h":3925092}},"ze-pc":{"proj":"Zed East","svc":"pc","kpi":true,"steady":true,"years":true,"cover_extra":["Phase C3","Common areas – Kids Areas – Gates – Roads (Internal – External) Basement B1-B2 – spraying Paid Service"],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":true,"img":{"p":"word/media/image1.jpeg","w":5943600,"h":3925092}},"ze-wm":{"proj":"Zed East","svc":"wm","kpi":true,"steady":true,"years":true,"cover_extra":["Phase C3"],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":false,"img":{"p":"word/media/image1.jpeg","w":5943600,"h":3925092}},"zc-hk":{"proj":"Zed East Club","svc":"hk","kpi":true,"steady":true,"years":true,"cover_extra":["Clubhouse – Multi sport Hall – Gymnastics & Martial Arts– Swimming Academy - Olympic Pool– Football Complex - Tennis Complex - Leisure Pool & Kids Area – Gates – Parking – Street - Plaza"],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":false,"img":{"p":"word/media/image1.png","w":5734050,"h":3965575}},"zc-pc":{"proj":"Zed East Club","svc":"pc","kpi":true,"steady":true,"years":true,"cover_extra":["Clubhouse – Multi sport Hall – Gymnastics & Martial Arts– Swimming Academy - Olympic Pool– Football Complex - Tennis Complex - Leisure Pool & Kids Area – Gates – Parking – Street - Plaza"],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":false,"img":{"p":"word/media/image1.png","w":5734050,"h":3965575}},"zc-wm":{"proj":"Zed East Club","svc":"wm","kpi":true,"steady":true,"years":true,"cover_extra":[],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":false,"img":{"p":"word/media/image2.png","w":4743450,"h":4287349}},"zw-hk":{"proj":"Zed West","svc":"hk","kpi":true,"steady":true,"years":true,"cover_extra":["Phase (1A Y Towers – 4 Towers, 1B 12 Buildings)","12 Buildings Phase 2","Common areas – Kids Areas – Gates – Roads (Internal – External) Basement B1-B2"],"cover":true,"mp":true,"tbl":false,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":6446520,"h":3187700}},"zw-pc":{"proj":"Zed West","svc":"pc","kpi":true,"steady":true,"years":true,"cover_extra":["Phase (1A Y Towers – 4 Towers, 1B 12 Buildings)","12 Buildings Phase 2 (Optional )","Common areas – Kids Areas – Gates – Roads (External) Basement B1-B2 –Paid Service"],"cover":true,"mp":false,"tbl":true,"basic":false,"optional":true,"img":{"p":"word/media/image1.jpeg","w":6446520,"h":3187700}},"zw-fc":{"proj":"Zed West","svc":"fc","kpi":true,"steady":true,"years":false,"cover_extra":["Phase 1A Y Towers – 4 Towers","1B 12 Buildings)","12 Buildings Phase 2"],"cover":true,"mp":true,"tbl":false,"basic":true,"optional":false,"img":{"p":"word/media/image1.jpeg","w":6446520,"h":3187700}},"zw-wm":{"proj":"Zed West","svc":"wm","kpi":true,"steady":true,"years":true,"cover_extra":["Phase (1A Y Towers – 4 Towers, 1B 12 Buildings)","Optional: 12 Buildings Phase 2","Common areas – Kids Areas – Gates – Roads (Internal – External) Basement B1-B2"],"cover":true,"mp":false,"tbl":true,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":6446520,"h":3187700}},"zw-sd":{"proj":"Zed West","svc":"sd","kpi":true,"steady":true,"years":true,"cover_extra":["Phase (1A Y Towers – 4 Towers, 1B 12 Buildings)","Optional: 12 Buildings Phase 2"],"cover":true,"mp":false,"tbl":true,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":6446520,"h":3187700}},"sv-hk":{"proj":"Silversands","svc":"hk","kpi":true,"steady":true,"years":true,"cover_extra":["Phase 1","Eight Terraces","Common areas – Kids Areas – Gates – Roads (Internal – External) pool decks – Beach furniture – lagoon deck AND Furniture"],"cover":true,"mp":false,"tbl":true,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":1779448,"h":5934327}},"sv-pc":{"proj":"Silversands","svc":"pc","kpi":true,"steady":true,"years":true,"cover_extra":["Phase 1","Eight terraces"],"cover":true,"mp":true,"tbl":false,"basic":false,"optional":true,"img":{"p":"word/media/image1.jpeg","w":2127250,"h":7094220}},"sv-wm":{"proj":"Silversands","svc":"wm","kpi":true,"steady":true,"years":true,"cover_extra":["Phase C3","8 Terraces"],"cover":true,"mp":false,"tbl":true,"basic":true,"optional":true,"img":{"p":"word/media/image1.jpeg","w":5935980,"h":1278890}}};
+const LB={hk:'Housekeeping',pc:'Pest Control',fc:'Facade Cleaning',wm:'Waste Management',sd:'Scent Diffusers'};
+const PJ=[{n:'Zed East',loc:'New Cairo',sv:['ze-hk','ze-pc','ze-wm','-','zc-hk','zc-pc','zc-wm']},
+{n:'Zed West',loc:'Zayed City',sv:['zw-hk','zw-pc','zw-fc','zw-wm','zw-sd','sa']},
+{n:'Silversands',loc:'North Coast',sv:['sv-hk','sv-pc','sv-wm']}];
+const TT={hk:'Housekeeping (Outdoor, Indoor) Services',pc:'Pest Control Services',wm:'Waste Management Services',fc:'Façade cleaning Services (External Cleaning)',sd:'Scent Diffusers Services'};
+const LC={'Zed West':'Zayed City','Zed East':'New Cairo','Silversands':'North Coast','Zed East Club':'New Cairo'};
 const MP=[['MP1','مدير مشروع','Project Manager'],['MP2','مشرف عام','General Supervisor'],['MP3','مشرف ميداني','Field Supervisor'],['MP4','عمال أولاد','Workers (Male)'],['MP5','عمال بنات','Workers (Female)'],['MP6','إداري موقع','Site Administrator']];
-const REVIEW=['جدول Table 1 (Included / Excluded): راجع البنود، فيه بنود منقولة من مشروع تاني (مجتمع، حمام سباحة، مساجد، Caretaker) واتضاف لها شرط "بقدر وجودها في المشروع"',
-'جدول Table 2 والـ Cleaning Period: التكرارات المناسبة للمشروع',
-'ساعات التشغيل: اتوحدت (7:30-5:30 للتنظيف العام، و8:30 ص-9 م للطرق والخارجي، و8 ص-8 م للمراكز المجتمعية). غيّرها لو المشروع مختلف',
-'بنود Basic Scope المحددة (Tram وعربيات الجولف والـ Plant pots): امسح اللي مش موجود في الموقع',
-'Section D: ماركات الخامات وقائمة المعدات (الكميات يكتبها المقاول في العرض)',
-'القوائم في الفقرة الأولى (Common areas, Towers, Plaza\u2019s...): سيب اللي ينطبق بس',
-'اسم المشروع Zed West والمراحل في الغلاف: عدّلهم لو المشروع اتغير',
-'سن العمالة والمشرفين (حاليًا من 21 لـ45): غيّره لو عندك سياسة تانية',
-'لوجو CPM (OPM) في هيدر الملف: سيبه أو شيله حسب قرارك'];
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let tab='hk',msg='',D={},IMG=null;
-try{D=JSON.parse(localStorage.getItem('rfp1')||'{}')}catch(x){}
-const save=()=>{try{localStorage.setItem('rfp1',JSON.stringify(D))}catch(x){}};
-const g=k=>(D[tab]=D[tab]||{})[k]??'';
 const $=i=>document.getElementById(i);
+let V=null,msg='',D={},IMG=null;
+try{D=JSON.parse(localStorage.getItem('rfp2')||'{}')}catch(x){}
+const save=()=>{try{localStorage.setItem('rfp2',JSON.stringify(D))}catch(x){}};
+const g=k=>{const d=D[V]=D[V]||{};return d[k]!==undefined?d[k]:(k=='COVER_EXTRA'?(M[V].cover_extra||[]).join('\n'):k=='KPI_THRESHOLD'?'95':'')};
 const lines=t=>String(g(t)).split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
 const total=()=>MP.reduce((a,m)=>a+(parseFloat(g(m[0]))||0),0);
-const need=()=>['COVER_DATE','CONTRACT_YEARS','BASIC_SCOPE'].filter(k=>!String(g(k)).trim());
-const NM={COVER_DATE:'تاريخ الغلاف',CONTRACT_YEARS:'مدة العقد',BASIC_SCOPE:'Basic Scope'};
-function fl(k,l,ph,r,t){return '<div><label>'+l+(r?'<span class="rq">مطلوب</span>':'')+'</label><input data-k="'+k+'" '+(t?'type="'+t+'" inputmode="numeric" ':'')+'value="'+e(g(k))+'" placeholder="'+ph+'" dir="ltr"></div>'}
-function nav(){$('nv').innerHTML=SV.map(s=>'<button class="'+(tab==s.id?'on':'')+'" onclick="tab=\''+s.id+'\';msg=\'\';IMG=null;R()">'+e(s.n)+(s.tpl?'':'<i>قريبًا</i>')+'</button>').join('')}
-function pv(){const s=SV.find(x=>x.id==tab);if(!s.tpl||!$('pv'))return;const ph=(v,p)=>v?e(v):'<em>'+p+'</em>',B=lines('BASIC_SCOPE'),O=lines('OPTIONAL_SCOPE');
-$('pv').innerHTML='<div class="lg"><span>ORA PROPERTIES</span><span>Page 1</span></div><div class="t1">Ora – Zed West</div><div class="t2">Zayed City, Egypt</div><div class="t2" style="margin-top:14px">Request For Proposal</div><div class="t3">'+s.t+'</div><div class="t3" style="font-weight:400">Facilities Management Tender</div><div class="dt">'+ph(g('COVER_DATE'),'تاريخ الغلاف')+'</div><hr>'+
-'<div>The contract … is for a period of <b class="k">'+ph(g('CONTRACT_YEARS'),'…')+'</b> years</div><div>Steady State by or before <b class="k">'+ph(g('STEADY_YEAR'),'…')+'</b></div><hr><b class="k">Required Manpower (Minimum)</b><table>'+
-MP.map(m=>'<tr><td>'+m[2]+'</td><td>'+(g(m[0])?e(g(m[0])):'-')+'</td></tr>').join('')+'<tr class="t"><td>Total</td><td>'+(total()||'-')+'</td></tr></table><hr><b class="k">Basic Scope</b>'+
-(B.length?'<ul class="sc">'+B.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>':'<div><em>Basic Scope</em></div>')+(O.length?'<hr><b class="k">Optional Scope (Phase Two)</b><ul class="sc">'+O.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>':'');
-$('tt').textContent=total()||'-';cf();bar()}
-function cf(){const el=$('cp');if(el)el.textContent=REVIEW.filter((_,i)=>g('ck'+i)).length+' من '+REVIEW.length}
-function bar(){const n=need(),el=$('br');if(!SV.find(x=>x.id==tab).tpl){el.style.display='none';return}el.style.display='';
-el.firstElementChild.innerHTML='<div class="bt">'+(msg?'<b class="'+(msg[0]=='✓'?'ok':'er')+'">'+e(msg)+'</b>':n.length?'ناقص: <b>'+n.map(k=>NM[k]).join('، ')+'</b>':'<b class="ok">البيانات الأساسية كاملة</b>')+'</div><button class="b" id="go" onclick="gen()">تنزيل ملف الـ RFP (Word)</button>'}
-function R(){nav();const s=SV.find(x=>x.id==tab),m=$('mn');
-if(!s.tpl){m.style.gridTemplateColumns='1fr';m.innerHTML='<div class="cd em"><h2>'+e(s.n)+'</h2><span class="hs" style="margin:6px 0 0">القسم جاهز في النظام. ابعت ملف الـ RFP الخاص بيه وقائمة التعديلات اليدوية وهيتفعّل.</span></div>';return bar()}
-m.style.gridTemplateColumns='';
-m.innerHTML='<div class="fm"><div class="cd"><h2>بيانات الـ Tender</h2><span class="hs">بتتغير يدويًا مع كل ملف جديد</span><div class="g">'+fl('COVER_DATE','تاريخ الغلاف','1st of JAN 2027',1)+fl('CONTRACT_YEARS','مدة العقد (سنين)','3',1)+fl('STEADY_YEAR','سنة الـ Steady State','2028')+fl('KPI_THRESHOLD','حد الأداء المقبول %','95')+'</div></div>'+
-'<div class="cd"><h2>خريطة المراحل</h2><span class="hs">بتظهر في صفحة 3 مكان الـ Site Plan</span><label class="dz"><div class="th" id="th"></div><div><b>اضغط لاختيار صورة</b><div class="mu" id="fn" style="color:var(--mu);font-size:13px">لو ما اخترتش، هتفضل الخريطة الحالية في الـ Template</div></div><input id="img" type="file" accept="image/*"></label></div>'+
-'<div class="cd"><h2>جدول Manpower</h2><span class="hs">تحت Staffing Requirements في صفحة 4</span><div class="mp">'+MP.map(x=>'<div class="mr"><span>'+x[1]+'</span><input data-k="'+x[0]+'" type="number" min="0" inputmode="numeric" value="'+e(g(x[0]))+'" placeholder="0" dir="ltr"></div>').join('')+'<div class="mr t"><span>الإجمالي</span><span id="tt">-</span></div></div></div>'+
-'<div class="cd"><h2>Basic Scope<span class="rq">مطلوب</span></h2><span class="hs">ALL phase 1 scope، اكتب كل بند في سطر</span><textarea data-k="BASIC_SCOPE" placeholder="Public areas&#10;Common areas&#10;Gates">'+e(g('BASIC_SCOPE'))+'</textarea></div>'+
-'<div class="cd"><h2>Optional Scope (Phase Two)</h2><span class="hs">سيبه فاضي لو مفيش خطط مستقبلية، والقسم هيتشال من الملف</span><textarea data-k="OPTIONAL_SCOPE" placeholder="ALL phase 2 scope">'+e(g('OPTIONAL_SCOPE'))+'</textarea></div>'+
-'<details class="cd"><summary><div><h2>تراجعها يدويًا قبل الإرسال</h2><span class="hs" style="margin:2px 0 0">النظام مش بيغيرها</span></div><span class="pg" id="cp"></span></summary>'+REVIEW.map((t,i)=>'<label class="ck"><input type="checkbox" data-c="'+i+'" '+(g('ck'+i)?'checked':'')+'><span>'+e(t)+'</span></label>').join('')+'</details></div>'+
-'<aside><div class="ph"><span>معاينة مباشرة</span><span>بتتحدث وأنت بتكتب</span></div><div class="pp" id="pv"></div></aside>';
-pv()}
-document.addEventListener('input',ev=>{const t=ev.target,k=t.dataset&&t.dataset.k;if(k){(D[tab]=D[tab]||{})[k]=t.value;msg='';save();pv()}});
-document.addEventListener('change',ev=>{const t=ev.target;if(t.dataset&&t.dataset.c!=null){(D[tab]=D[tab]||{})['ck'+t.dataset.c]=t.checked;save();cf()}
+const nm=id=>{const m=M[id];return (m.proj=='Zed East Club'?'Club — ':'')+LB[m.svc]};
+function need(){const m=M[V],n=[];if(!String(g('COVER_DATE')).trim())n.push('تاريخ الغلاف');if(m.years&&!String(g('CONTRACT_YEARS')).trim())n.push('مدة العقد');if(m.basic&&!lines('BASIC_SCOPE').length)n.push('Basic Scope');return n}
+function review(m){const r=['اسم المشروع والمراحل وسطور الغلاف: راجعها','القوائم في الفقرة الأولى (Common areas, Towers, Plaza…): سيب اللي ينطبق بس','ساعات التشغيل وجداول التكرار: راجعها حسب المشروع','لوجو CPM (OPM) في هيدر الملف: سيبه أو شيله حسب قرارك'];
+if(m.tbl)r.push('جدول الـ Manpower الموجود في الملف (الأعداد والورديات): عدّله يدويًا');
+if(m.svc=='hk')r.push('Table 1 (Included / Excluded) وبنود Basic Scope المحددة (Tram / Golf / Plant pots): امسح اللي مش موجود','Section D: ماركات الخامات والمعدات');
+if(m.svc=='wm')r.push('جدول أنواع المخلفات وطرق الجمع (Table 1) وجدول التكرارات');
+if(m.svc=='pc')r.push('جداول المبيدات والزيارات: راجعها حسب المشروع');
+return r}
+function home(){V=null;msg='';$('cr').hidden=true;$('br').hidden=true;
+$('mn').innerHTML='<div class="home">'+PJ.map(p=>'<section class="win"><div class="wh"><b>'+p.n+'</b><span>'+p.loc+'</span></div><div class="wb">'+p.sv.map(s=>s=='-'?'<div class="sep">Zed East Club</div>':s=='sa'?'<button class="sv" disabled><span>Serviced Apartment Operator</span><small>قريبًا</small></button>':'<button class="sv" onclick="open_(\''+s+'\')"><span>'+nm(s)+'</span><small><span class="dot">●</span> جاهز</small></button>').join('')+'</div></section>').join('')+'</div>'}
+function open_(id){V=id;msg='';IMG=null;R()}
+function R(){const m=M[V],p=PJ.find(x=>x.sv.includes(V));
+$('cr').hidden=false;$('cr').innerHTML='<button onclick="home()">← الرئيسية</button><span>'+p.n+' / '+nm(V)+'</span>';
+const fl=(k,l,ph,r)=>'<div><label>'+l+(r?'<span class="rq">مطلوب</span>':'')+'</label><input data-k="'+k+'" value="'+e(g(k))+'" placeholder="'+ph+'" dir="ltr"></div>';
+let h='<div class="ed"><div class="fm"><div class="cd"><h2>بيانات الـ Tender</h2><span class="hs">بتتغير يدويًا مع كل ملف جديد</span><div class="g">'+fl('COVER_DATE','تاريخ الغلاف (السنة)','1st of JAN 2027',1)+(m.years?fl('CONTRACT_YEARS','مدة العقد (سنين)','3',1):'')+(m.steady?fl('STEADY_YEAR','سنة الـ Steady State','2028'):'')+(m.kpi?fl('KPI_THRESHOLD','حد الأداء المقبول %','95'):'')+'</div>'+
+'<label style="margin-top:14px">سطور الغلاف (Phase / نطاق الخدمة)، سطر لكل فقرة</label><textarea data-k="COVER_EXTRA" style="min-height:80px">'+e(g('COVER_EXTRA'))+'</textarea></div>';
+if(m.img)h+='<div class="cd"><h2>خريطة المراحل</h2><span class="hs">بتظهر في القسم A مكان الـ Site Plan</span><label class="dz"><div class="th" id="th"></div><div><b>اضغط لاختيار صورة</b><div id="fn" style="color:var(--mu);font-size:13px;font-weight:400">لو ما اخترتش، هتفضل الخريطة الحالية في الـ Template</div></div><input id="img" type="file" accept="image/*"></label></div>';
+if(m.mp)h+='<div class="cd"><h2>جدول Manpower</h2><span class="hs">تحت Staffing Requirements</span><div class="mp">'+MP.map(x=>'<div class="mr"><span>'+x[1]+'</span><input data-k="'+x[0]+'" type="number" min="0" inputmode="numeric" value="'+e(g(x[0]))+'" placeholder="0" dir="ltr"></div>').join('')+'<div class="mr t"><span>الإجمالي</span><span id="tt">-</span></div></div></div>';
+if(m.basic)h+='<div class="cd"><h2>Basic Scope<span class="rq">مطلوب</span></h2><span class="hs">ALL phase 1 scope، اكتب كل بند في سطر</span><textarea data-k="BASIC_SCOPE" placeholder="Public areas&#10;Common areas&#10;Gates">'+e(g('BASIC_SCOPE'))+'</textarea></div>';
+if(m.optional)h+='<div class="cd"><h2>Optional Scope (Phase Two)</h2><span class="hs">سيبه فاضي لو مفيش خطط مستقبلية</span><textarea data-k="OPTIONAL_SCOPE" placeholder="ALL phase 2 scope">'+e(g('OPTIONAL_SCOPE'))+'</textarea></div>';
+const rv=review(m);
+h+='<details class="cd"><summary><div><h2>تراجعها يدويًا قبل الإرسال</h2><span class="hs" style="margin:2px 0 0">النظام مش بيغيرها</span></div><span class="pg" id="cp"></span></summary>'+rv.map((t,i)=>'<label class="ck"><input type="checkbox" data-c="'+i+'" '+(g('ck'+i)?'checked':'')+'><span>'+e(t)+'</span></label>').join('')+'</details></div>'+
+'<aside><div class="ph"><span>معاينة مباشرة</span><span>بتتحدث وأنت بتكتب</span></div><div class="pp" id="pv"></div></aside></div>';
+$('mn').innerHTML=h;pv()}
+function pv(){if(!V||!$('pv'))return;const m=M[V],ph=(v,p)=>v?e(v):'<em>'+p+'</em>',B=lines('BASIC_SCOPE'),O=lines('OPTIONAL_SCOPE'),X=lines('COVER_EXTRA');
+let h='<div class="lg"><span>ORA PROPERTIES</span><span>Page 1</span></div><div class="t1">Ora – '+e(m.proj)+'</div><div class="t2">'+e(LC[m.proj])+', Egypt</div><div class="t2" style="margin-top:14px">Request For Proposal</div><div class="t3">'+e(TT[m.svc])+'</div><div class="t3" style="font-weight:400">Facilities Management Tender</div>'+X.map(l=>'<div class="t3" style="font-weight:400;font-size:12px">'+e(l)+'</div>').join('')+'<div class="dt">'+ph(g('COVER_DATE'),'تاريخ الغلاف')+'</div>';
+if(m.years||m.steady)h+='<hr>'+(m.years?'<div>Contract period: <b class="k">'+ph(g('CONTRACT_YEARS'),'…')+'</b> years</div>':'')+(m.steady?'<div>Steady State by or before <b class="k">'+ph(g('STEADY_YEAR'),'…')+'</b></div>':'');
+if(m.mp)h+='<hr><b class="k">Required Manpower (Minimum)</b><table>'+MP.map(x=>'<tr><td>'+x[2]+'</td><td>'+(g(x[0])?e(g(x[0])):'-')+'</td></tr>').join('')+'<tr class="t"><td>Total</td><td>'+(total()||'-')+'</td></tr></table>';
+if(m.basic)h+='<hr><b class="k">Basic Scope</b>'+(B.length?'<ul class="sc">'+B.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>':'<div><em>Basic Scope</em></div>');
+if(m.optional&&O.length)h+='<hr><b class="k">Optional Scope (Phase Two)</b><ul class="sc">'+O.map(l=>'<li>'+e(l)+'</li>').join('')+'</ul>';
+$('pv').innerHTML=h;if($('tt'))$('tt').textContent=total()||'-';cf();bar()}
+function cf(){const el=$('cp');if(el){const n=review(M[V]).length;el.textContent=review(M[V]).filter((_,i)=>g('ck'+i)).length+' من '+n}}
+function bar(){const n=need(),el=$('br');if(!V){el.hidden=true;return}el.hidden=false;
+el.firstElementChild.innerHTML='<div class="bt">'+(msg?'<b class="'+(msg[0]=='✓'?'ok':'er')+'">'+e(msg)+'</b>':n.length?'ناقص: <b>'+n.join('، ')+'</b>':'<b class="ok">البيانات الأساسية كاملة</b>')+'</div><button class="b" id="go" onclick="gen()">تنزيل ملف الـ RFP (Word)</button>'}
+document.addEventListener('input',ev=>{const t=ev.target,k=t.dataset&&t.dataset.k;if(k&&V){(D[V]=D[V]||{})[k]=t.value;msg='';save();pv()}});
+document.addEventListener('change',ev=>{const t=ev.target;if(t.dataset&&t.dataset.c!=null){(D[V]=D[V]||{})['ck'+t.dataset.c]=t.checked;save();cf()}
 if(t.id=='img'&&t.files[0]){IMG=t.files[0];$('th').style.backgroundImage='url('+URL.createObjectURL(IMG)+')';$('fn').textContent=IMG.name}});
 const x2=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-async function toJpeg(f){const u=URL.createObjectURL(f),im=new Image();await new Promise((r,j)=>{im.onload=r;im.onerror=j;im.src=u});
-const W=2116,H=1046,c=document.createElement('canvas');c.width=W;c.height=H;const q=c.getContext('2d');q.fillStyle='#fff';q.fillRect(0,0,W,H);
+async function toImg(f,w0,h0,png){const u=URL.createObjectURL(f),im=new Image();await new Promise((r,j)=>{im.onload=r;im.onerror=j;im.src=u});
+const mx=2400,W=w0>=h0?mx:Math.round(mx*w0/h0),H=w0>=h0?Math.round(mx*h0/w0):mx,c=document.createElement('canvas');c.width=W;c.height=H;const q=c.getContext('2d');q.fillStyle='#fff';q.fillRect(0,0,W,H);
 const k=Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;q.drawImage(im,(W-w)/2,(H-h)/2,w,h);URL.revokeObjectURL(u);
-return new Promise(r=>c.toBlob(r,'image/jpeg',.9))}
-async function gen(){const b=$('go'),d=D[tab]||{};if(need().length){msg='املأ: '+need().map(k=>NM[k]).join('، ');return bar()}
+return new Promise(r=>c.toBlob(r,png?'image/png':'image/jpeg',.9))}
+async function gen(){const b=$('go'),m=M[V];if(need().length){msg='املأ: '+need().join('، ');return bar()}
 b.disabled=true;b.textContent='جاري التجهيز...';msg='';
-try{const s=SV.find(x=>x.id==tab),r=await fetch(s.tpl).catch(()=>null);
-if(!r||!r.ok)throw new Error('ملف الـ Template مش لاقيه ('+s.tpl+'). ارفعه في الريبو جنب index.html في فولدر اسمه templates بنفس الاسم، وافتح الصفحة من رابط GitHub Pages مش من الملف مباشرة.');
+try{const url='templates/'+V+'.docx',r=await fetch(url).catch(()=>null);
+if(!r||!r.ok)throw new Error('ملف الـ Template مش لاقيه ('+url+'). ارفع فولدر templates كامل جنب index.html في الريبو، وافتح الصفحة من رابط GitHub Pages مش من الملف مباشرة.');
 const ab=await r.arrayBuffer(),hd=new Uint8Array(ab.slice(0,2));
-if(hd[0]!=80||hd[1]!=75)throw new Error('الملف اللي اتحمّل من '+s.tpl+' مش docx سليم. ارفع housekeeping.docx تاني من غير ما يتغير.');
-const z=await JSZip.loadAsync(ab);
-let x=await z.file('word/document.xml').async('string');
+if(hd[0]!=80||hd[1]!=75)throw new Error('الملف اللي اتحمّل من '+url+' مش docx سليم. ارفعه تاني من غير ما يتغير.');
+const z=await JSZip.loadAsync(ab);let x=await z.file('word/document.xml').async('string');
 const rp=(t,v)=>{x=x.split('{{'+t+'}}').join(x2(v))};
-rp('COVER_DATE',d.COVER_DATE.trim());rp('CONTRACT_YEARS',d.CONTRACT_YEARS.trim());rp('STEADY_YEAR',(d.STEADY_YEAR||'').trim());rp('KPI_THRESHOLD',(d.KPI_THRESHOLD||'95').trim());
-MP.forEach(m=>rp(m[0],(d[m[0]]||'').trim()||'-'));rp('MPT',total()||'-');
-for(const t of['BASIC_SCOPE','OPTIONAL_SCOPE']){const tk='{{'+t+'}}',i=x.indexOf(tk);if(i<0)continue;
-const a=x.lastIndexOf('<w:p ',i),c=x.indexOf('</w:p>',i)+6,p=x.slice(a,c);
-x=x.slice(0,a)+lines(t).map(l=>p.replace(tk,x2(l))).join('')+x.slice(c)}
+rp('COVER_DATE',g('COVER_DATE').trim());rp('CONTRACT_YEARS',g('CONTRACT_YEARS').trim());rp('STEADY_YEAR',g('STEADY_YEAR').trim());rp('KPI_THRESHOLD',(g('KPI_THRESHOLD')||'95').trim());
+MP.forEach(q=>rp(q[0],String(g(q[0])).trim()||'-'));rp('MPT',total()||'-');
+for(const t of['COVER_EXTRA','BASIC_SCOPE','OPTIONAL_SCOPE']){const tk='{{'+t+'}}',i=x.indexOf(tk);if(i<0)continue;
+const a=Math.max(x.lastIndexOf('<w:p '),0,x.lastIndexOf('<w:p>',i)),a2=Math.max(x.lastIndexOf('<w:p ',i),x.lastIndexOf('<w:p>',i)),c=x.indexOf('</w:p>',i)+6,p=x.slice(a2,c);
+x=x.slice(0,a2)+lines(t).map(l=>p.replace(tk,x2(l))).join('')+x.slice(c)}
 x=x.split('<w:highlight w:val="yellow"/>').join('');
 z.file('word/document.xml',x);
-if(IMG)z.file('word/media/image1.jpeg',await toJpeg(IMG));
+if(IMG&&m.img)z.file(m.img.p,await toImg(IMG,m.img.w,m.img.h,/\.png$/i.test(m.img.p)));
 const bl=await z.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}),
-a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=s.n+'-RFP-'+d.COVER_DATE.replace(/[^\w]+/g,'_')+'.docx';a.click();msg='✓ تم تنزيل الملف'}
+a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=m.proj.replace(/ /g,'_')+'-'+LB[m.svc].replace(/ /g,'_')+'-RFP-'+g('COVER_DATE').replace(/[^\w]+/g,'_')+'.docx';a.click();msg='✓ تم تنزيل الملف'}
 catch(err){msg='حصل خطأ: '+err.message}
-bar()}
-R();
+bar();if(b)b.disabled=false}
+home();
 </script></body></html>
