@@ -62,16 +62,14 @@ aside{position:sticky;top:14px}
 <script>
 const SV=[{id:'hk',n:'Housekeeping',tpl:'templates/housekeeping.docx',t:'Housekeeping (Outdoor, Indoor) Services'},{id:'fc',n:'الواجهات'},{id:'pc',n:'مكافحة الحشرات'},{id:'af',n:'ماكينات المعطر'},{id:'wr',n:'رفع المخلفات'},{id:'sa',n:'مشغل Serviced Apartment'}];
 const MP=[['MP1','مدير مشروع','Project Manager'],['MP2','مشرف عام','General Supervisor'],['MP3','مشرف ميداني','Field Supervisor'],['MP4','عمال أولاد','Workers (Male)'],['MP5','عمال بنات','Workers (Female)'],['MP6','إداري موقع','Site Administrator']];
-const REVIEW=['جدول Table 1 (Included / Excluded): راجع كل بند لأنه منقول من مشروع تاني (مجتمع، حمام سباحة، مساجد، Caretaker...)',
+const REVIEW=['جدول Table 1 (Included / Excluded): راجع البنود، فيه بنود منقولة من مشروع تاني (مجتمع، حمام سباحة، مساجد، Caretaker) واتضاف لها شرط "بقدر وجودها في المشروع"',
 'جدول Table 2 والـ Cleaning Period: التكرارات المناسبة للمشروع',
-'ساعات التشغيل: فيه تعارض داخل الملف (7:30-5:30 / 8-5 / 8:30 ص - 9 م وكتوب 9 ساعات / 8-8 وكتوب 12 ساعة) وحّدها حسب المشروع',
-'بنود الـ Tram وعربيات الجولف والـ Plant pots في Basic Scope: امسح اللي مش موجود في الموقع',
-'Section D: كميات المعدات (QTY فاضية) وماركات الخامات',
+'ساعات التشغيل: اتوحدت (7:30-5:30 للتنظيف العام، و8:30 ص-9 م للطرق والخارجي، و8 ص-8 م للمراكز المجتمعية). غيّرها لو المشروع مختلف',
+'بنود Basic Scope المحددة (Tram وعربيات الجولف والـ Plant pots): امسح اللي مش موجود في الموقع',
+'Section D: ماركات الخامات وقائمة المعدات (الكميات يكتبها المقاول في العرض)',
 'القوائم في الفقرة الأولى (Common areas, Towers, Plaza\u2019s...): سيب اللي ينطبق بس',
 'اسم المشروع Zed West والمراحل في الغلاف: عدّلهم لو المشروع اتغير',
-'عدد سنين العقد وسنة الـ Steady State',
-'سن العمالة/المشرفين (المشرف لحد 30 والعامل 20-30): قرر تفضل ولا لأ',
-'إشارة Clause 17 في جدول الـ KPI: اتأكد إنها بتشاور على بند فعلي في العقد',
+'سن العمالة والمشرفين (حاليًا من 21 لـ45): غيّره لو عندك سياسة تانية',
 'لوجو CPM (OPM) في هيدر الملف: سيبه أو شيله حسب قرارك'];
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let tab='hk',msg='',D={},IMG=null;
@@ -115,7 +113,11 @@ const k=Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;q.drawImage(
 return new Promise(r=>c.toBlob(r,'image/jpeg',.9))}
 async function gen(){const b=$('go'),d=D[tab]||{};if(need().length){msg='املأ: '+need().map(k=>NM[k]).join('، ');return bar()}
 b.disabled=true;b.textContent='جاري التجهيز...';msg='';
-try{const s=SV.find(x=>x.id==tab),z=await JSZip.loadAsync(await(await fetch(s.tpl)).arrayBuffer());
+try{const s=SV.find(x=>x.id==tab),r=await fetch(s.tpl).catch(()=>null);
+if(!r||!r.ok)throw new Error('ملف الـ Template مش لاقيه ('+s.tpl+'). ارفعه في الريبو جنب index.html في فولدر اسمه templates بنفس الاسم، وافتح الصفحة من رابط GitHub Pages مش من الملف مباشرة.');
+const ab=await r.arrayBuffer(),hd=new Uint8Array(ab.slice(0,2));
+if(hd[0]!=80||hd[1]!=75)throw new Error('الملف اللي اتحمّل من '+s.tpl+' مش docx سليم. ارفع housekeeping.docx تاني من غير ما يتغير.');
+const z=await JSZip.loadAsync(ab);
 let x=await z.file('word/document.xml').async('string');
 const rp=(t,v)=>{x=x.split('{{'+t+'}}').join(x2(v))};
 rp('COVER_DATE',d.COVER_DATE.trim());rp('CONTRACT_YEARS',d.CONTRACT_YEARS.trim());rp('STEADY_YEAR',(d.STEADY_YEAR||'').trim());rp('KPI_THRESHOLD',(d.KPI_THRESHOLD||'95').trim());
